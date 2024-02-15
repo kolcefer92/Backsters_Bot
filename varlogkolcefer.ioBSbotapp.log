@@ -125,3 +125,71 @@ java.lang.NullPointerException: text is marked non-null but is null
 2024-02-13 18:19:24,785 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 11.0.22 on WIN-FC0F682E6N6 with PID 8976 (C:\Users\user\Desktop\BackstersBot\target\classes started by user in C:\Users\user\Desktop\BackstersBot)
 2024-02-13 18:19:24,785 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
 2024-02-13 18:19:26,569 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Started BackstersBotApplication in 2.19 seconds (JVM running for 3.311)
+2024-02-15 19:53:12,444 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 11.0.2 on MacBook-Pro-Eduard.local with PID 10373 (/Users/code/Programming/BackstersBot/target/classes started by code in /Users/code/Programming/BackstersBot)
+2024-02-15 19:53:12,448 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-02-15 19:53:13,962 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Started BackstersBotApplication in 1.846 seconds (JVM running for 7.974)
+2024-02-15 20:15:23,156 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 11.0.2 on MacBook-Pro-Eduard.local with PID 10524 (/Users/code/Programming/BackstersBot/target/classes started by code in /Users/code/Programming/BackstersBot)
+2024-02-15 20:15:23,161 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-02-15 20:15:24,652 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Started BackstersBotApplication in 1.844 seconds (JVM running for 7.625)
+2024-02-15 20:15:52,556 ERROR org.telegram.telegrambots.updatesreceivers.DefaultBotSession [BackstersBot Telegram Executor] null
+java.lang.NullPointerException: null
+	at io.kolcefer.BackstersBot.service.TelegramBot.onUpdateReceived(TelegramBot.java:53)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.telegram.telegrambots.meta.generics.LongPollingBot.onUpdatesReceived(LongPollingBot.java:27)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$HandlerThread.run(DefaultBotSession.java:317)
+2024-02-15 20:17:24,235 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 11.0.2 on MacBook-Pro-Eduard.local with PID 10543 (/Users/code/Programming/BackstersBot/target/classes started by code in /Users/code/Programming/BackstersBot)
+2024-02-15 20:17:24,240 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-02-15 20:17:25,867 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Started BackstersBotApplication in 1.938 seconds (JVM running for 7.651)
+2024-02-15 20:35:42,292 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 11.0.2 on MacBook-Pro-Eduard.local with PID 10657 (/Users/code/Programming/BackstersBot/target/classes started by code in /Users/code/Programming/BackstersBot)
+2024-02-15 20:35:42,297 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-02-15 20:35:43,792 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Started BackstersBotApplication in 1.8 seconds (JVM running for 7.525)
+2024-02-15 20:40:33,447 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 11.0.2 on MacBook-Pro-Eduard.local with PID 10689 (/Users/code/Programming/BackstersBot/target/classes started by code in /Users/code/Programming/BackstersBot)
+2024-02-15 20:40:33,450 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-02-15 20:40:34,911 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Started BackstersBotApplication in 1.724 seconds (JVM running for 7.365)
+2024-02-15 20:42:32,548 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 11.0.2 on MacBook-Pro-Eduard.local with PID 10713 (/Users/code/Programming/BackstersBot/target/classes started by code in /Users/code/Programming/BackstersBot)
+2024-02-15 20:42:32,550 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-02-15 20:42:33,987 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Started BackstersBotApplication in 1.739 seconds (JVM running for 7.438)
+2024-02-15 20:43:21,953 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 11.0.2 on MacBook-Pro-Eduard.local with PID 10720 (/Users/code/Programming/BackstersBot/target/classes started by code in /Users/code/Programming/BackstersBot)
+2024-02-15 20:43:21,955 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-02-15 20:43:23,052 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Started BackstersBotApplication in 1.296 seconds (JVM running for 6.936)
+2024-02-15 20:44:39,096 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 11.0.2 on MacBook-Pro-Eduard.local with PID 10728 (/Users/code/Programming/BackstersBot/target/classes started by code in /Users/code/Programming/BackstersBot)
+2024-02-15 20:44:39,103 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-02-15 20:44:40,460 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Started BackstersBotApplication in 1.629 seconds (JVM running for 7.313)
+2024-02-15 20:46:20,452 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 11.0.2 on MacBook-Pro-Eduard.local with PID 10740 (/Users/code/Programming/BackstersBot/target/classes started by code in /Users/code/Programming/BackstersBot)
+2024-02-15 20:46:20,456 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-02-15 20:46:21,969 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Started BackstersBotApplication in 1.793 seconds (JVM running for 7.691)
+2024-02-15 20:47:23,126 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 11.0.2 on MacBook-Pro-Eduard.local with PID 10754 (/Users/code/Programming/BackstersBot/target/classes started by code in /Users/code/Programming/BackstersBot)
+2024-02-15 20:47:23,129 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-02-15 20:47:24,422 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Started BackstersBotApplication in 1.523 seconds (JVM running for 7.162)
+2024-02-15 20:47:33,587 ERROR org.telegram.telegrambots.updatesreceivers.DefaultBotSession [BackstersBot Telegram Executor] text is marked non-null but is null
+java.lang.NullPointerException: text is marked non-null but is null
+	at org.telegram.telegrambots.meta.api.methods.send.SendMessage.setText(SendMessage.java:35)
+	at io.kolcefer.BackstersBot.service.TelegramBot.sendMessage(TelegramBot.java:105)
+	at io.kolcefer.BackstersBot.service.TelegramBot.onUpdateReceived(TelegramBot.java:42)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.telegram.telegrambots.meta.generics.LongPollingBot.onUpdatesReceived(LongPollingBot.java:27)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$HandlerThread.run(DefaultBotSession.java:317)
+2024-02-15 20:51:23,921 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 11.0.2 on MacBook-Pro-Eduard.local with PID 10772 (/Users/code/Programming/BackstersBot/target/classes started by code in /Users/code/Programming/BackstersBot)
+2024-02-15 20:51:23,925 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-02-15 20:51:25,419 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Started BackstersBotApplication in 1.777 seconds (JVM running for 7.602)
+2024-02-15 20:55:38,751 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 11.0.2 on MacBook-Pro-Eduard.local with PID 10788 (/Users/code/Programming/BackstersBot/target/classes started by code in /Users/code/Programming/BackstersBot)
+2024-02-15 20:55:38,754 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-02-15 20:55:39,973 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Started BackstersBotApplication in 1.46 seconds (JVM running for 7.098)
+2024-02-15 20:58:30,669 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 11.0.2 on MacBook-Pro-Eduard.local with PID 10811 (/Users/code/Programming/BackstersBot/target/classes started by code in /Users/code/Programming/BackstersBot)
+2024-02-15 20:58:30,673 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-02-15 20:58:31,987 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Started BackstersBotApplication in 1.547 seconds (JVM running for 7.164)
+2024-02-15 20:59:48,926 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 11.0.2 on MacBook-Pro-Eduard.local with PID 10821 (/Users/code/Programming/BackstersBot/target/classes started by code in /Users/code/Programming/BackstersBot)
+2024-02-15 20:59:48,929 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-02-15 20:59:50,192 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Started BackstersBotApplication in 1.535 seconds (JVM running for 7.215)
+2024-02-15 21:13:55,128 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 11.0.2 on MacBook-Pro-Eduard.local with PID 10908 (/Users/code/Programming/BackstersBot/target/classes started by code in /Users/code/Programming/BackstersBot)
+2024-02-15 21:13:55,133 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-02-15 21:13:56,414 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Started BackstersBotApplication in 1.535 seconds (JVM running for 7.186)
+2024-02-15 21:21:34,738 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 11.0.2 on MacBook-Pro-Eduard.local with PID 10954 (/Users/code/Programming/BackstersBot/target/classes started by code in /Users/code/Programming/BackstersBot)
+2024-02-15 21:21:34,741 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-02-15 21:21:36,152 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Started BackstersBotApplication in 1.658 seconds (JVM running for 7.483)
+2024-02-15 21:22:15,916 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 11.0.2 on MacBook-Pro-Eduard.local with PID 10961 (/Users/code/Programming/BackstersBot/target/classes started by code in /Users/code/Programming/BackstersBot)
+2024-02-15 21:22:15,919 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-02-15 21:22:17,241 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Started BackstersBotApplication in 1.56 seconds (JVM running for 7.197)
+2024-02-15 21:25:42,100 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 11.0.2 on MacBook-Pro-Eduard.local with PID 10980 (/Users/code/Programming/BackstersBot/target/classes started by code in /Users/code/Programming/BackstersBot)
+2024-02-15 21:25:42,104 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-02-15 21:25:43,856 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Started BackstersBotApplication in 2.093 seconds (JVM running for 7.991)

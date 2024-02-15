@@ -15,22 +15,23 @@ import org.springframework.stereotype.Component;
 
 public class Cardinfo {
 
-    String name;
+    private String name;
 
-    String points;
+    private String points;
 
     public String getName() {
         return name;
     }
 
     public String getPoints() {
+
         return points;
     }
 
    
 
 
-    public void getInfo() {
+    public void getInfo(String phone) {
 
         String url = "https://api.ytimes.ru/ex/client/loadClientInfo";
         String token = "070950ad-b669-4633-9055-6b583abf8d91-1706029627735";
@@ -55,7 +56,7 @@ public class Cardinfo {
         String username = null;
         try {
             // Добавляем тело запроса в формате JSON
-            String jsonInput = "{\"cardNumber\": " + 11296 + "}";
+            String jsonInput = "{\"cardNumber\": " + phone + "}";
             StringEntity entity = new StringEntity(jsonInput);
             httpPost.setEntity(entity);
 
