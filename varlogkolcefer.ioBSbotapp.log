@@ -10,3 +10,15 @@
 2024-02-22 19:18:40,875 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 11.0.22 on WIN-FC0F682E6N6 with PID 7440 (C:\Users\user\Documents\Project\target\classes started by user in C:\Users\user\Documents\Project)
 2024-02-22 19:18:40,875 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
 2024-02-22 19:18:42,566 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Started BackstersBotApplication in 2.092 seconds (JVM running for 3.353)
+2024-02-22 20:15:08,078 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 11.0.22 on WIN-FC0F682E6N6 with PID 1068 (C:\Users\user\Documents\Project\target\classes started by user in C:\Users\user\Documents\Project)
+2024-02-22 20:15:08,093 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-02-22 20:15:10,140 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Started BackstersBotApplication in 2.495 seconds (JVM running for 3.863)
+2024-02-22 20:15:43,820 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 11.0.22 on WIN-FC0F682E6N6 with PID 3744 (C:\Users\user\Documents\Project\target\classes started by user in C:\Users\user\Documents\Project)
+2024-02-22 20:15:43,820 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-02-22 20:15:45,650 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Started BackstersBotApplication in 2.223 seconds (JVM running for 3.844)
+2024-02-22 20:18:08,326 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 11.0.22 on WIN-FC0F682E6N6 with PID 11028 (C:\Users\user\Documents\Project\target\classes started by user in C:\Users\user\Documents\Project)
+2024-02-22 20:18:08,326 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-02-22 20:18:10,704 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Started BackstersBotApplication in 2.774 seconds (JVM running for 4.023)
+2024-02-22 20:19:05,469 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 11.0.22 on WIN-FC0F682E6N6 with PID 8864 (C:\Users\user\Documents\Project\target\classes started by user in C:\Users\user\Documents\Project)
+2024-02-22 20:19:05,469 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-02-22 20:19:07,129 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Started BackstersBotApplication in 2.038 seconds (JVM running for 3.221)

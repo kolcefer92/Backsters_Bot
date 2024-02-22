@@ -70,20 +70,26 @@ public class OrderList {
 
             // Получаем содержимое ответа в виде строки
             String responseBody = EntityUtils.toString(response.getEntity());
-             System.out.println("Response Body: " + responseBody);
+            // System.out.println("Response Body: " + responseBody);
 
 
-//            JSONObject jsonResponse = new JSONObject(responseBody);
-//
-//// Проверка успешности запроса
-//            boolean success = jsonResponse.getBoolean("success");
-//            if (success) {
-//                // Получение массива точек
-//                JSONArray rows = jsonResponse.getJSONArray("rows");
-//
-//                for (int i = 0; i < rows.length(); i++) {
-//                    JSONObject point = rows.getJSONObject(i);
-//                    String name = point.getString("name");
+          JSONObject jsonResponse = new JSONObject(responseBody);
+
+ //Проверка успешности запроса
+            boolean success = jsonResponse.getBoolean("success");
+            if (success) {
+                // Получение массива точек
+               JSONArray rows = jsonResponse.getJSONArray("rows");
+                    int card = 0;
+                    int kash = 0;
+                for (int i = 0; i < rows.length(); i++) {
+                    JSONObject point = rows.getJSONObject(i);
+                    //String name = point.getString("name");
+                    int c = point.getInt("paymentCreditValue");
+                    int k = point.getInt("paymentCashValue");
+
+                    card = card +c;
+                    kash = kash + k;
 //                    username = name;
 //                    float points;
 //                    points = point.getFloat("points");
@@ -101,12 +107,19 @@ public class OrderList {
 //                    //  System.out.println("Address: " + address);
 //                    //  System.out.println("Phone: " + phone);
 //                    // System.out.println();
-//                }
-//            } else {
-//                // Обработка ошибки, если необходимо
-//                String error = jsonResponse.optString("error", "Unknown error");
-//                System.out.println("Error: " + error);
-//            }
+              }
+                System.out.println("карта: " +card +" "+"наличные: "+kash+" всего "+(card + kash));
+
+
+           }
+
+
+
+            else {
+                // Обработка ошибки, если необходимо
+                String error = jsonResponse.optString("error", "Unknown error");
+                System.out.println("Error: " + error);
+           }
        } catch (Exception e) {
             e.printStackTrace();
              String balance1 = points;
