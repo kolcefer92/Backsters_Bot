@@ -2,6 +2,7 @@ package io.kolcefer.BackstersBot.service;
 
 
 import io.kolcefer.BackstersBot.apiYtimes.Cardinfo;
+import io.kolcefer.BackstersBot.apiYtimes.OrderList;
 import io.kolcefer.BackstersBot.config.BotConfig;
 
 import lombok.Data;
@@ -30,6 +31,7 @@ public class TelegramBot  extends TelegramLongPollingBot {
         this.config = config;
     }
     Cardinfo card = new Cardinfo();
+    OrderList list1 = new OrderList();
     private Map<Long, Integer> userStates = new HashMap<>();
     @Override
 
@@ -46,6 +48,7 @@ public class TelegramBot  extends TelegramLongPollingBot {
 
             switch ( messageText){
                 case "/start":
+                   list1.getOrderInfo();
 
 
 
