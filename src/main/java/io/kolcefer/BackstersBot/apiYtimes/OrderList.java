@@ -43,7 +43,7 @@ public class OrderList {
         HttpPost httpPost = new HttpPost(url);
 
 
-        // Добавляем заголовки с токеном и указываем формат JSON
+        // Добавляем заголовки с токеном и указываем формат JSN
         httpPost.addHeader("Authorization", token);
         httpPost.addHeader("Accept", "application/json;charset=UTF-8");
         httpPost.addHeader("Content-Type", "application/json;charset=UTF-8");
