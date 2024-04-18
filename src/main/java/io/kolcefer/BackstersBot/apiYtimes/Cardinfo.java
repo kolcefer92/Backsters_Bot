@@ -11,7 +11,7 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-//@Component
+@Component
 
 public class Cardinfo {
 
@@ -119,3 +119,104 @@ public class Cardinfo {
 
     }
 }
+
+
+/*
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class ClientData {
+    @JsonProperty("name")
+    private String name;
+
+    @JsonProperty("points")
+    private float points;
+
+    // Геттеры и сеттеры
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public float points() {
+        return points;
+    }
+
+    public void setPoints(float points) {
+        this.points = pointspoints;
+    }
+}
+
+import org.springframework.http.*;
+import org.springframework.web.client.RestTemplate;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+public class Main {
+    public static void main(String[] args) {
+        // Создаем объект RestTemplate
+        RestTemplate restTemplate = new RestTemplate();
+
+        // URL для отправки POST-запроса
+        String url = "https://api.ytimes.ru/ex/client/loadClientInfo";
+
+        // Создаем объект с данными для отправки
+        ClientInfo clientInfo = new ClientInfo("7", "9001112233");
+
+        try {
+            // Преобразуем объект в JSON
+            ObjectMapper objectMapper = new ObjectMapper();
+            String requestBody = objectMapper.writeValueAsString(clientInfo);
+
+            // Задаем заголовки запроса
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_JSON);
+
+            // Создаем объект запроса
+            HttpEntity<String> request = new HttpEntity<>(requestBody, headers);
+
+            // Отправляем запрос и получаем ответ
+            ResponseEntity<String> response = restTemplate.postForEntity(url, request, String.class);
+
+            // Выводим результат
+            System.out.println("Response status: " + response.getStatusCode());
+            System.out.println("Response body: " + response.getBody());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+// Используем Lombok для автоматической генерации геттеров, сеттеров, конструкторов и toString
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+class ClientInfo {
+    // Аннотации для Jackson для указания имени полей в JSON
+    @JsonProperty("phoneCode")
+    private String phoneCode;
+
+    @JsonProperty("phone")
+    private String phone;
+}
+
+
+
+// Отправляем запрос и получаем ответ
+ResponseEntity<ClientData> response = restTemplate.postForEntity(url, request, ClientData.class);
+
+// Получаем объект ClientData из ответа
+ClientData clientData = response.getBody();
+
+// Используем данные из объекта ClientData
+String name = clientData.getName();
+float points = clientData.getPoints();
+
+// Теперь вы можете использовать переменные name и points в вашей программе
+
+ */

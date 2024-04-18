@@ -1,12 +1,17 @@
 package io.kolcefer.BackstersBot.service;
 
 
+import io.kolcefer.BackstersBot.apiYtimes.CardInfoGetBalance;
 import io.kolcefer.BackstersBot.apiYtimes.Cardinfo;
+import io.kolcefer.BackstersBot.apiYtimes.ClientData;
 import io.kolcefer.BackstersBot.apiYtimes.OrderList;
 import io.kolcefer.BackstersBot.config.BotConfig;
 
+import io.kolcefer.BackstersBot.entity.Users;
+import io.kolcefer.BackstersBot.repository.UserRepo;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.SpringVersion;
 import org.springframework.expression.spel.ast.NullLiteral;
 import org.springframework.stereotype.Component;
@@ -16,6 +21,7 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import javax.swing.*;
+import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,61 +29,84 @@ import java.util.Map;
 @Component
 @Data
 
-public class TelegramBot  extends TelegramLongPollingBot {
+public class TelegramBot extends TelegramLongPollingBot {
 
     final BotConfig config;
 
-    public TelegramBot(BotConfig config){
+    public TelegramBot(BotConfig config) {
         this.config = config;
     }
+
     Cardinfo card = new Cardinfo();
     OrderList list1 = new OrderList();
-    private Map<Long, Integer> userStates = new HashMap<>();
+    @Autowired
+    ClientData clientData;
+
+    @Autowired
+    CardInfoGetBalance cardInfoGetBalance;
+
+    @Autowired
+    private UserRepo userRepo;
+
+
+    public static Map<Long, Integer> userStates = new HashMap<>();
+
     @Override
 
     public void onUpdateReceived(Update update) {
 
 
-
-        if(update.hasMessage()  && update.getMessage().hasText()){
-            String messageText =  update.getMessage().getText();
+        if (update.hasMessage() && update.getMessage().hasText()) {
+            String messageText = update.getMessage().getText();
             long chatId = update.getMessage().getChatId();
 
+//            System.out.println(chatId);
+//
+//            Users users1  = new Users(chatId, "ssss","ss", 222221501);
+//            userRepo.save(users1);
 
 
-
-            switch ( messageText){
+            switch (messageText) {
                 case "/start":
-                   list1.getOrderInfo();
+                    //  list1.getOrderInfo();
 
 
-
-                        startCommandReceived(chatId, update.getMessage().getChat().getFirstName());
-                        break;
+                    startCommandReceived(chatId, update.getMessage().getChat().getFirstName());
+                    break;
 
                 case "/balance":
-                    // Устанавливаем состояние ожидания номера телефона для пользователя
+//                    // Устанавливаем состояние ожидания номера телефона для пользователя
+//                    userStates.put(chatId, 1);
+//                    sendMessage(chatId, "Пожалуйста, введите ваш номер телефона:");
+//
+//
+//                    // Завершаем выполнение onUpdateReceived, чтобы не выполнялась
+//                    // логика обработки сообщений дальше до ввода номера
+                   //long x = chatId;
+
+                   // cardInfoGetBalance.getBalance(userRepo.findById(chatId).get().getPhoneNumber());
+
+                   // card.getInfo(userRepo.findById(chatId).get().getPhoneNumber());
+                    sendMessage(chatId,String.valueOf(cardInfoGetBalance.getBalance(userRepo.findById(chatId)
+                            .get()
+                            .getPhoneNumber()).
+                            getPoints()));
+
+
+                    break;
+
+                case "/registred":
+
                     userStates.put(chatId, 1);
                     sendMessage(chatId, "Пожалуйста, введите ваш номер телефона:");
-                    // Завершаем выполнение onUpdateReceived, чтобы не выполнялась
-                    // логика обработки сообщений дальше до ввода номера
-                    return;
-                //break;
 
+                    return;
 
                 default:
-                   // String nameuser = card.user(11296);
-                    //card.getInfo();
-                   // String answ = card.getPoints() + " бонусов\n" + " "+card.getName();
-
-                   // sendMessage(chatId, answ);
-                    //sendMessage(chatId, card.getName());
 
                     System.out.println("Sorry, command was not recognized");
-
             }
 
-            // Если состояние диалога с пользователем не определено, просто игнорируем сообщение
             if (!userStates.containsKey(chatId)) {
                 return;
             }
@@ -85,17 +114,20 @@ public class TelegramBot  extends TelegramLongPollingBot {
             int state = userStates.get(chatId);
             switch (state) {
                 case 1:
-                    // Обрабатываем введенный пользователем номер телефона
                     String phoneNumber = messageText;
-                    // Здесь можно добавить логику обработки номера телефона
-                    // Например, сохранить его в базе данных или использовать для каких-то операций
-                    // После обработки номера можно удалить состояние ожидания для этого пользователя
+
+//                    // Здесь можно добавить логику обработки номера телефона
+//                    // Например, сохранить его в базе данных или использовать для каких-то операций
+//                    // После обработки номера можно удалить состояние ожидания для этого пользователя
                     userStates.remove(chatId);
                     sendMessage(chatId, "Спасибо! Номер телефона сохранен.");
-                    //sendMessage(chatId,phoneNumber);
-                    card.getInfo(phoneNumber);
-                    sendMessage(chatId, card.getPoints());
 
+//                    card.getInfo(phoneNumber);
+//                    sendMessage(chatId, card.getPoints());
+//                    String s = card.getName();
+                    clientData =  cardInfoGetBalance.getBalance(phoneNumber);
+
+                    userRepo.save(new Users(chatId, clientData.getName(), clientData.getSurname(), phoneNumber));
 
                     break;
 
@@ -106,36 +138,84 @@ public class TelegramBot  extends TelegramLongPollingBot {
             }
 
 
-
         }
 
     }
 
+    public void registrationUser(long chatId, String messageText, Map<Long, Integer> map) {
 
-    private void startCommandReceived(long chatId, String name){
+
+        if (!map.containsKey(chatId)) {
+            return;
+        }
+
+        int state = map.get(chatId);
+        switch (state) {
+            case 1:
+                // Обрабатываем введенный пользователем номер телефона
+                String phoneNumber = messageText;
 
 
-        String answer = "Hi, " + name+ ", nice to meet you";
+                // Здесь можно добавить логику обработки номера телефона
+                // Например, сохранить его в базе данных или использовать для каких-то операций
+                // После обработки номера можно удалить состояние ожидания для этого пользователя
+                map.remove(chatId);
+                sendMessage(chatId, "Спасибо! Номер телефона сохранен.");
+
+
+                //sendMessage(chatId,phoneNumber);
+                card.getInfo(phoneNumber);
+                String msg = String.valueOf(card.getPoints());
+                sendMessage(chatId, msg);
+
+                String s = card.getName();
+
+
+                cardInfoGetBalance.getBalance(phoneNumber).getName();
+
+
+//                    Users users  = new Users(chatId, s,"ss", phoneNumber);
+                userRepo.save(new Users(chatId, cardInfoGetBalance.getBalance(phoneNumber).getName(),
+                        cardInfoGetBalance.getBalance(phoneNumber).getSurname(),
+                        phoneNumber));
+
+
+                break;
+
+            default:
+                // Если состояние не определено, просто отправляем сообщение об ошибке
+                sendMessage(chatId, "Произошла ошибка.");
+                break;
+        }
+
+
+    }
+
+
+    private void startCommandReceived(long chatId, String name) {
+
+
+        String answer = "Hi, " + name + ", nice to meet you";
         //log.info("Replied to user " + name);
 
         sendMessage(chatId, answer);
     }
 
-    private void sendMessage(long chatId, String textToSend){
+    void sendMessage(long chatId, String textToSend) {
         SendMessage message = new SendMessage();
         message.setChatId(String.valueOf(chatId));
         message.setText(textToSend);
 
-        try{
+        try {
             execute(message);
-        }
-        catch (TelegramApiException e){
-           // log.error("error occurred "+e.getMessage());
-            
+        } catch (TelegramApiException e) {
+            // log.error("error occurred "+e.getMessage());
+
 
         }
 
     }
+
 
     @Override
     public String getBotUsername() {
