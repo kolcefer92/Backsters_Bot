@@ -18,11 +18,16 @@ import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardButton;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import javax.swing.*;
 import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Slf4j
@@ -49,7 +54,7 @@ public class TelegramBot extends TelegramLongPollingBot {
     private UserRepo userRepo;
 
 
-    public static Map<Long, Integer> userStates = new HashMap<>();
+    public  Map<Long, Integer> userStates = new HashMap<>();
 
     @Override
 
@@ -70,8 +75,16 @@ public class TelegramBot extends TelegramLongPollingBot {
                 case "/start":
                     //  list1.getOrderInfo();
 
+                    String msg = "Добро пожаловть в бот Backster`s Coffee";
+                    //startCommandReceived(chatId, update.getMessage().getChat().getFirstName());
+                    if (userRepo.findById(chatId).isEmpty()){
 
-                    startCommandReceived(chatId, update.getMessage().getChat().getFirstName());
+                        sendMessageNonRegistred(chatId, msg);
+                    } else {
+                        sendMessageRegistred(chatId,msg);
+
+                    }
+
                     break;
 
                 case "/balance":
@@ -87,7 +100,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                    // cardInfoGetBalance.getBalance(userRepo.findById(chatId).get().getPhoneNumber());
 
                    // card.getInfo(userRepo.findById(chatId).get().getPhoneNumber());
-                    sendMessage(chatId,String.valueOf(cardInfoGetBalance.getBalance(userRepo.findById(chatId)
+                    sendMessageRegistred(chatId,String.valueOf(cardInfoGetBalance.getBalance(userRepo.findById(chatId)
                             .get()
                             .getPhoneNumber()).
                             getPoints()));
@@ -95,7 +108,13 @@ public class TelegramBot extends TelegramLongPollingBot {
 
                     break;
 
-                case "/registred":
+                case "/logout":
+                    userRepo.deleteById(chatId);
+                    sendMessageNonRegistred(chatId,"Вы разлогинились!");
+
+                    break;
+
+                case "/registration":
 
                     userStates.put(chatId, 1);
                     sendMessage(chatId, "Пожалуйста, введите ваш номер телефона:");
@@ -120,7 +139,7 @@ public class TelegramBot extends TelegramLongPollingBot {
 //                    // Например, сохранить его в базе данных или использовать для каких-то операций
 //                    // После обработки номера можно удалить состояние ожидания для этого пользователя
                     userStates.remove(chatId);
-                    sendMessage(chatId, "Спасибо! Номер телефона сохранен.");
+                    sendMessageRegistred(chatId, "Спасибо! Номер телефона сохранен.");
 
 //                    card.getInfo(phoneNumber);
 //                    sendMessage(chatId, card.getPoints());
@@ -205,6 +224,79 @@ public class TelegramBot extends TelegramLongPollingBot {
         SendMessage message = new SendMessage();
         message.setChatId(String.valueOf(chatId));
         message.setText(textToSend);
+
+
+//        ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup();
+//        List<KeyboardRow> keyboardRows = new ArrayList<>();
+//        KeyboardRow keyboardRow = new KeyboardRow();
+//
+//        keyboardRow.add("/registration");
+//        keyboardRow.add("/balance");
+//
+//        keyboardRows.add(keyboardRow);
+//
+//        replyKeyboardMarkup.setKeyboard(keyboardRows);
+//
+//        message.setReplyMarkup(replyKeyboardMarkup);
+
+        try {
+            execute(message);
+        } catch (TelegramApiException e) {
+            // log.error("error occurred "+e.getMessage());
+
+
+        }
+
+    }
+
+    void sendMessageNonRegistred(long chatId, String textToSend) {
+        SendMessage message = new SendMessage();
+        message.setChatId(String.valueOf(chatId));
+        message.setText(textToSend);
+
+
+        ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup();
+        List<KeyboardRow> keyboardRows = new ArrayList<>();
+        KeyboardRow keyboardRow = new KeyboardRow();
+
+        keyboardRow.add("/registration");
+        keyboardRow.add("/balance");
+
+        keyboardRows.add(keyboardRow);
+
+        replyKeyboardMarkup.setKeyboard(keyboardRows);
+
+        message.setReplyMarkup(replyKeyboardMarkup);
+
+        try {
+            execute(message);
+        } catch (TelegramApiException e) {
+            // log.error("error occurred "+e.getMessage());
+
+
+        }
+
+    }
+
+
+    void sendMessageRegistred(long chatId, String textToSend) {
+        SendMessage message = new SendMessage();
+        message.setChatId(String.valueOf(chatId));
+        message.setText(textToSend);
+
+
+        ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup();
+        List<KeyboardRow> keyboardRows = new ArrayList<>();
+        KeyboardRow keyboardRow = new KeyboardRow();
+
+        keyboardRow.add("/balance");
+        keyboardRow.add("/logout");
+
+        keyboardRows.add(keyboardRow);
+
+        replyKeyboardMarkup.setKeyboard(keyboardRows);
+
+        message.setReplyMarkup(replyKeyboardMarkup);
 
         try {
             execute(message);
