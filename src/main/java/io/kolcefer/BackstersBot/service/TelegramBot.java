@@ -1,6 +1,7 @@
 package io.kolcefer.BackstersBot.service;
 
 
+import io.kolcefer.BackstersBot.apiYtimes.Order;
 import io.kolcefer.BackstersBot.apiYtimes.CardInfoGetBalance;
 import io.kolcefer.BackstersBot.apiYtimes.Cardinfo;
 import io.kolcefer.BackstersBot.apiYtimes.ClientData;
@@ -18,6 +19,7 @@ import org.springframework.expression.spel.ast.NullLiteral;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
+import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageText;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
@@ -45,8 +47,6 @@ public class TelegramBot extends TelegramLongPollingBot {
         this.config = config;
     }
 
-    Cardinfo card = new Cardinfo();
-    OrderList list1 = new OrderList();
     @Autowired
     ClientData clientData;
 
@@ -55,6 +55,11 @@ public class TelegramBot extends TelegramLongPollingBot {
 
     @Autowired
     private UserRepo userRepo;
+
+//    @Autowired
+//    private Order order;
+
+
 
 
     public  Map<Long, Integer> userStates = new HashMap<>();
@@ -129,8 +134,10 @@ public class TelegramBot extends TelegramLongPollingBot {
                     return;
 
                 case "/newOrder":
+
+
                     System.out.println("neworder");
-                    createOrder(chatId);
+                   createOrder(chatId);
 
                     break;
 
@@ -171,7 +178,72 @@ public class TelegramBot extends TelegramLongPollingBot {
 
 
         }
+        else if (update.hasCallbackQuery()) {
+            System.out.println("hasCallBack");
+            String callbackData = update.getCallbackQuery().getData();
+            long messageId = update.getCallbackQuery().getMessage().getMessageId();
+            long chatId = update.getCallbackQuery().getMessage().getChatId();
 
+            if(callbackData.equals("classicMenu")){
+                System.out.println("equals кофе");
+                String text = "Выберите напиток";
+                try {
+                    executeEditMessageText(text, chatId, messageId);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            else if(callbackData.equals("Авторское меню")){
+                String text = "You pressed NO button";
+                executeEditMessageText(text, chatId, messageId);
+            }
+            else if(callbackData.equals("Не кофе")){
+
+            }
+        }
+
+
+    }
+
+    public void executeMessage(SendMessage message){
+        try {
+            execute(message);
+        } catch (TelegramApiException e) {
+            // log.error(ERROR_TEXT + e.getMessage());
+        }
+    }
+
+    private void executeEditMessageText(String text, long chatId, long messageId){
+        EditMessageText message = new EditMessageText();
+        message.setChatId(String.valueOf(chatId));
+        message.setText(text);
+        message.setMessageId((int) messageId);
+
+        InlineKeyboardMarkup keyboardMarkup = new InlineKeyboardMarkup();
+        List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
+        List<InlineKeyboardButton> rowInline1 = new ArrayList<>();
+
+
+        var CLASSIC_MENU = new InlineKeyboardButton();
+        CLASSIC_MENU.setText("Капучино");
+        CLASSIC_MENU.setCallbackData("classicMenu");
+        rowInline1.add(CLASSIC_MENU);
+
+        rowsInline.add(rowInline1);
+
+
+        keyboardMarkup.setKeyboard(rowsInline);
+
+        message.setReplyMarkup(keyboardMarkup);
+
+
+
+
+        try {
+            execute(message);
+        } catch (TelegramApiException e) {
+            //log.error(ERROR_TEXT + e.getMessage());
+        }
     }
 
 
@@ -216,66 +288,13 @@ public class TelegramBot extends TelegramLongPollingBot {
             System.out.println("try");
             execute(message);
         } catch (TelegramApiException e) {
-            // log.error("error occurred "+e.getMessage());
+            log.error("error occurred "+e.getMessage());
 
 
         }
-
-
-
-
-
 
     }
 
-    public void registrationUser(long chatId, String messageText, Map<Long, Integer> map) {
-
-
-        if (!map.containsKey(chatId)) {
-            return;
-        }
-
-        int state = map.get(chatId);
-        switch (state) {
-            case 1:
-                // Обрабатываем введенный пользователем номер телефона
-                String phoneNumber = messageText;
-
-
-                // Здесь можно добавить логику обработки номера телефона
-                // Например, сохранить его в базе данных или использовать для каких-то операций
-                // После обработки номера можно удалить состояние ожидания для этого пользователя
-                map.remove(chatId);
-                sendMessage(chatId, "Спасибо! Номер телефона сохранен.");
-
-
-                //sendMessage(chatId,phoneNumber);
-                card.getInfo(phoneNumber);
-                String msg = String.valueOf(card.getPoints());
-                sendMessage(chatId, msg);
-
-                String s = card.getName();
-
-
-                cardInfoGetBalance.getBalance(phoneNumber).getName();
-
-
-//                    Users users  = new Users(chatId, s,"ss", phoneNumber);
-                userRepo.save(new Users(chatId, cardInfoGetBalance.getBalance(phoneNumber).getName(),
-                        cardInfoGetBalance.getBalance(phoneNumber).getSurname(),
-                        phoneNumber));
-
-
-                break;
-
-            default:
-                // Если состояние не определено, просто отправляем сообщение об ошибке
-                sendMessage(chatId, "Произошла ошибка.");
-                break;
-        }
-
-
-    }
 
 
     private void startCommandReceived(long chatId, String name) {
