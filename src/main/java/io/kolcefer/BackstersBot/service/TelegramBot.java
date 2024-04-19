@@ -11,6 +11,7 @@ import io.kolcefer.BackstersBot.entity.Users;
 import io.kolcefer.BackstersBot.repository.UserRepo;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.SpringVersion;
 import org.springframework.expression.spel.ast.NullLiteral;
@@ -18,7 +19,9 @@ import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardButton;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
@@ -87,6 +90,8 @@ public class TelegramBot extends TelegramLongPollingBot {
 
                     break;
 
+
+
                 case "/balance":
 //                    // Устанавливаем состояние ожидания номера телефона для пользователя
 //                    userStates.put(chatId, 1);
@@ -108,6 +113,8 @@ public class TelegramBot extends TelegramLongPollingBot {
 
                     break;
 
+
+
                 case "/logout":
                     userRepo.deleteById(chatId);
                     sendMessageNonRegistred(chatId,"Вы разлогинились!");
@@ -120,6 +127,12 @@ public class TelegramBot extends TelegramLongPollingBot {
                     sendMessage(chatId, "Пожалуйста, введите ваш номер телефона:");
 
                     return;
+
+                case "/newOrder":
+                    System.out.println("neworder");
+                    createOrder(chatId);
+
+                    break;
 
                 default:
 
@@ -158,6 +171,60 @@ public class TelegramBot extends TelegramLongPollingBot {
 
 
         }
+
+    }
+
+
+
+    public void createOrder(long chatid){
+
+        SendMessage message = new SendMessage();
+        message.setChatId(String.valueOf(chatid));
+        message.setText("Выберите категорию меню");
+
+        InlineKeyboardMarkup keyboardMarkup = new InlineKeyboardMarkup();
+        List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
+        List<InlineKeyboardButton> rowInline1 = new ArrayList<>();
+        List<InlineKeyboardButton> rowInline2 = new ArrayList<>();
+        List<InlineKeyboardButton> rowInline3 = new ArrayList<>();
+
+        var CLASSIC_MENU = new InlineKeyboardButton();
+        CLASSIC_MENU.setText("Кофе");
+        CLASSIC_MENU.setCallbackData("classicMenu");
+        rowInline1.add(CLASSIC_MENU);
+
+        var AUTHOR_MENU = new InlineKeyboardButton();
+        AUTHOR_MENU.setText("Авторское меню");
+        AUTHOR_MENU.setCallbackData("authorMenu");
+        rowInline2.add(AUTHOR_MENU);
+
+        var NOTE_COFFEE = new InlineKeyboardButton();
+        NOTE_COFFEE.setText("Не кофе");
+        NOTE_COFFEE.setCallbackData("noteCoffee");
+        rowInline3.add(NOTE_COFFEE);
+
+        rowsInline.add(rowInline1);
+        rowsInline.add(rowInline2);
+        rowsInline.add(rowInline3);
+
+        keyboardMarkup.setKeyboard(rowsInline);
+
+        message.setReplyMarkup(keyboardMarkup);
+        System.out.println("done");
+
+        try {
+            System.out.println("try");
+            execute(message);
+        } catch (TelegramApiException e) {
+            // log.error("error occurred "+e.getMessage());
+
+
+        }
+
+
+
+
+
 
     }
 
