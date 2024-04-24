@@ -5,7 +5,9 @@ package io.kolcefer.BackstersBot.service;
 import io.kolcefer.BackstersBot.apiYtimes.*;
 import io.kolcefer.BackstersBot.config.BotConfig;
 
+import io.kolcefer.BackstersBot.entity.Menu;
 import io.kolcefer.BackstersBot.entity.Users;
+import io.kolcefer.BackstersBot.repository.MenuRepo;
 import io.kolcefer.BackstersBot.repository.UserRepo;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
@@ -53,6 +55,9 @@ public class TelegramBot extends TelegramLongPollingBot {
     @Autowired
     private UserRepo userRepo;
 
+    @Autowired
+    private MenuRepo menuRepo;
+
 //    @Autowired
 //    Order order;
 
@@ -79,7 +84,7 @@ public class TelegramBot extends TelegramLongPollingBot {
 
 
                     String msg = "Добро пожаловть в бот Backster`s Coffee";
-                    //startCommandReceived(chatId, update.getMessage().getChat().getFirstName());
+                    startCommandReceived(chatId, update.getMessage().getChat().getFirstName());
                     if (userRepo.findById(chatId).isEmpty()){
 
                         sendMessageNonRegistred(chatId, msg);
@@ -93,11 +98,14 @@ public class TelegramBot extends TelegramLongPollingBot {
 
 
                 case "/balance":
-//
+
                     sendMessageRegistred(chatId,String.valueOf(cardInfoGetBalance.getBalance(userRepo.findById(chatId)
                             .get()
                             .getPhoneNumber()).
                             getPoints()));
+
+
+
 
 
                     break;
@@ -293,6 +301,10 @@ public class TelegramBot extends TelegramLongPollingBot {
 
 
     private void startCommandReceived(long chatId, String name) {
+       // MenuRepo menuRepo = new("Флэт уайт", "cba009e4-655a-4951-9d57-86058a6dec3b", "cda491f9-470c-4e41-95dd-0ca0e4ba9eb1", 180, "7149fc5e-1973-4624-afb6-7454c600640a", 260, "7149fc5e-1973-4624-afb6-7454c600640a", 350);
+
+//        menuRepo.save(new Menu("Флэт уайт","cba009e4-655a-4951-9d57-86058a6dec3b", "cda491f9-470c-4e41-95dd-0ca0e4ba9eb1", 180,"7149fc5e-1973-4624-afb6-7454c600640a",260,"7149fc5e-1973-4624-afb6-7454c600640a",350));
+//        String s = menuRepo.findById(5).get().getName();
 
 
         String answer = "Hi, " + name + ", nice to meet you";
