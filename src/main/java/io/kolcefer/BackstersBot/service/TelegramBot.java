@@ -1,11 +1,8 @@
 package io.kolcefer.BackstersBot.service;
 
 
-import io.kolcefer.BackstersBot.apiYtimes.Order;
-import io.kolcefer.BackstersBot.apiYtimes.CardInfoGetBalance;
-import io.kolcefer.BackstersBot.apiYtimes.Cardinfo;
-import io.kolcefer.BackstersBot.apiYtimes.ClientData;
-import io.kolcefer.BackstersBot.apiYtimes.OrderList;
+
+import io.kolcefer.BackstersBot.apiYtimes.*;
 import io.kolcefer.BackstersBot.config.BotConfig;
 
 import io.kolcefer.BackstersBot.entity.Users;
@@ -57,7 +54,9 @@ public class TelegramBot extends TelegramLongPollingBot {
     private UserRepo userRepo;
 
 //    @Autowired
-//    private Order order;
+//    Order order;
+
+
 
 
 
@@ -73,15 +72,11 @@ public class TelegramBot extends TelegramLongPollingBot {
             String messageText = update.getMessage().getText();
             long chatId = update.getMessage().getChatId();
 
-//            System.out.println(chatId);
-//
-//            Users users1  = new Users(chatId, "ssss","ss", 222221501);
-//            userRepo.save(users1);
 
 
             switch (messageText) {
                 case "/start":
-                    //  list1.getOrderInfo();
+
 
                     String msg = "Добро пожаловть в бот Backster`s Coffee";
                     //startCommandReceived(chatId, update.getMessage().getChat().getFirstName());
@@ -98,18 +93,7 @@ public class TelegramBot extends TelegramLongPollingBot {
 
 
                 case "/balance":
-//                    // Устанавливаем состояние ожидания номера телефона для пользователя
-//                    userStates.put(chatId, 1);
-//                    sendMessage(chatId, "Пожалуйста, введите ваш номер телефона:");
 //
-//
-//                    // Завершаем выполнение onUpdateReceived, чтобы не выполнялась
-//                    // логика обработки сообщений дальше до ввода номера
-                   //long x = chatId;
-
-                   // cardInfoGetBalance.getBalance(userRepo.findById(chatId).get().getPhoneNumber());
-
-                   // card.getInfo(userRepo.findById(chatId).get().getPhoneNumber());
                     sendMessageRegistred(chatId,String.valueOf(cardInfoGetBalance.getBalance(userRepo.findById(chatId)
                             .get()
                             .getPhoneNumber()).
@@ -137,7 +121,18 @@ public class TelegramBot extends TelegramLongPollingBot {
 
 
                     System.out.println("neworder");
-                   createOrder(chatId);
+                   Users user =  userRepo.findById(chatId).get();
+
+                    Client client = new Client(user.getName(),user.getPhoneNumber(),"+7",user.getPhoneNumber(),null);
+                    System.out.println(user.getName()+user.getPhoneNumber()+"+7"+user.getPhoneNumber());
+
+                    ItemList itemList = new ItemList("2ee40cbd-9d1e-463b-b61c-9731579e1034","4475cf55-0dfb-4fb4-a110-fa61f7c87b81",null,null,100.0,3);
+                    List<ItemList> item1 = new ArrayList<>();
+                    item1.add(itemList);
+                    Order order1 = new Order(null,null, "a4c346cd-7ad0-425b-abbb-b950f83ac653","TOGO", client,item1,null,null,false,null);
+
+                  String str1 = order1.sendOrder(order1, client,item1);
+                    System.out.println(str1);
 
                     break;
 
