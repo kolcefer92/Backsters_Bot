@@ -15,6 +15,7 @@ public class ItemList {
     private String goodsItemGuid;
     @JsonProperty("priceWithDiscount")
     private Double priceWithDiscount;
+    @JsonProperty("quantity")
     private int quantity;
 
     public ItemList(String menuItemGuid, String menuTypeGuid, List<?> supplementList, String goodsItemGuid, Double priceWithDiscount, int quantity) {
