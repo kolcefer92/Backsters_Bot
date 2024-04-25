@@ -126,6 +126,10 @@ public class TelegramBot extends TelegramLongPollingBot {
 
                 case "/newOrder":
                  //   Order order = new Order(null,null,null,null,null,null,null,0.0,false,null);
+                    order.setGuid(null);
+                    order.setStatus(null);
+                    order.set
+
 
 
                     System.out.println("neworder");
@@ -240,6 +244,31 @@ public class TelegramBot extends TelegramLongPollingBot {
                     break;
 
 
+                case ("smallValues"):
+                    String textsmallValues = "Выберите сироп";
+
+
+                    supplementList(textsmallValues,chatId,messageId);
+
+                    break;
+
+                case ("mediumValues"):
+                    String textmediumValues = "Выберите сироп";
+
+
+                    supplementList(textmediumValues,chatId,messageId);
+
+                    break;
+
+                case ("largelValues"):
+                    String textlargelValues = "Выберите сироп";
+
+
+                    supplementList(textlargelValues,chatId,messageId);
+
+                    break;
+
+
 
 
             }
@@ -320,7 +349,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         message.setText(text);
         message.setMessageId((int) messageId);
 
-        // Капучино Латте Раф Мокко Флет Уайт Американо
+        // Капучино Латте Раф Мокко Флет Уайт Американо supplement
 
         InlineKeyboardMarkup keyboardMarkup = new InlineKeyboardMarkup();
         List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
@@ -426,7 +455,94 @@ public class TelegramBot extends TelegramLongPollingBot {
         rowInline3.add(largeValues);
         rowsInline.add(rowInline3);
 
+        keyboardMarkup.setKeyboard(rowsInline);
+        message.setReplyMarkup(keyboardMarkup);
 
+
+        try {
+            execute(message);
+        } catch (TelegramApiException e) {
+            //log.error(ERROR_TEXT + e.getMessage());
+        }
+    }
+
+
+    private void supplementList(String text, long chatId, long messageId){
+        EditMessageText message = new EditMessageText();
+        message.setChatId(String.valueOf(chatId));
+        message.setText(text);
+        message.setMessageId((int) messageId);
+
+        // Капучино Латте Раф Мокко Флет Уайт Американо supplement
+
+        InlineKeyboardMarkup keyboardMarkup = new InlineKeyboardMarkup();
+        List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
+        List<InlineKeyboardButton> rowInline1 = new ArrayList<>();
+        List<InlineKeyboardButton> rowInline2 = new ArrayList<>();
+        List<InlineKeyboardButton> rowInline3 = new ArrayList<>();
+        List<InlineKeyboardButton> rowInline4 = new ArrayList<>();
+        List<InlineKeyboardButton> rowInline5 = new ArrayList<>();
+        List<InlineKeyboardButton> rowInline6 = new ArrayList<>();
+        List<InlineKeyboardButton> rowInline7 = new ArrayList<>();
+        List<InlineKeyboardButton> rowInline8 = new ArrayList<>();
+
+
+        var supplementCaramel = new InlineKeyboardButton();
+        String settext1 = "Карамель";
+        supplementCaramel.setText(settext1);
+        supplementCaramel.setCallbackData("supplementCaramel");
+        rowInline1.add(supplementCaramel);
+        rowsInline.add(rowInline1);
+
+        var supplementVanil = new InlineKeyboardButton();
+        String settext2 = "Ваниль";
+        supplementVanil.setText(settext2);
+        supplementVanil.setCallbackData("supplementVanil");
+        rowInline2.add(supplementVanil);
+        rowsInline.add(rowInline2);
+
+        var supplementLesnoyOreh = new InlineKeyboardButton();
+        String settext3 = "Лесной орех";
+        supplementLesnoyOreh.setText(settext3);
+        supplementLesnoyOreh.setCallbackData("supplementLesnoyOreh");
+        rowInline3.add(supplementLesnoyOreh);
+        rowsInline.add(rowInline3);
+
+        var supplementKokos = new InlineKeyboardButton();
+        String settext4 = "Кокос";
+        supplementKokos.setText(settext4);
+        supplementKokos.setCallbackData("supplementKokos");
+        rowInline4.add(supplementKokos);
+        rowsInline.add(rowInline4);
+
+        var supplementBanan = new InlineKeyboardButton();
+        String settext5 = "Банан Уайт";
+        supplementBanan.setText(settext5);
+        supplementBanan.setCallbackData("supplementBanan");
+        rowInline5.add(supplementBanan);
+        rowsInline.add(rowInline5);
+
+        var supplementShokCoocies = new InlineKeyboardButton();
+        String settext6 = "Шоколадное печенье";
+        supplementShokCoocies.setText(settext6);
+        supplementShokCoocies.setCallbackData("supplementShokCoocies");
+        rowInline6.add(supplementShokCoocies);
+        rowsInline.add(rowInline6);
+
+        var supplementMindal = new InlineKeyboardButton();
+        String settext7 = "Миндаль";
+        supplementMindal.setText(settext7);
+        supplementMindal.setCallbackData("supplementMindal");
+        rowInline7.add(supplementMindal);
+        rowsInline.add(rowInline7);
+
+
+        var supplementSaltedCaramel = new InlineKeyboardButton();
+        String settext8 = "Сол. Карамель";
+        supplementSaltedCaramel.setText(settext8);
+        supplementSaltedCaramel.setCallbackData("supplementSaltedCaramel");
+        rowInline8.add(supplementSaltedCaramel);
+        rowsInline.add(rowInline8);
 
 
 
@@ -442,6 +558,7 @@ public class TelegramBot extends TelegramLongPollingBot {
             //log.error(ERROR_TEXT + e.getMessage());
         }
     }
+
 
 
 
