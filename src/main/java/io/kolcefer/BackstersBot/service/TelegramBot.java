@@ -12,6 +12,7 @@ import io.kolcefer.BackstersBot.repository.UserRepo;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
+import org.springframework.beans.factory.HierarchicalBeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.SpringVersion;
 import org.springframework.expression.spel.ast.NullLiteral;
@@ -28,6 +29,7 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.Keyboard
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import javax.swing.*;
+import javax.swing.text.html.HTMLEditorKit;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -58,8 +60,8 @@ public class TelegramBot extends TelegramLongPollingBot {
     @Autowired
     private MenuRepo menuRepo;
 
-//    @Autowired
-//    Order order;
+    @Autowired
+    Order order;
 
 
 
@@ -105,9 +107,6 @@ public class TelegramBot extends TelegramLongPollingBot {
                             getPoints()));
 
 
-
-
-
                     break;
 
 
@@ -126,21 +125,24 @@ public class TelegramBot extends TelegramLongPollingBot {
                     return;
 
                 case "/newOrder":
+                 //   Order order = new Order(null,null,null,null,null,null,null,0.0,false,null);
 
 
                     System.out.println("neworder");
-                   Users user =  userRepo.findById(chatId).get();
+//                   Users user =  userRepo.findById(chatId).get();
+//
+//                    Client client = new Client(user.getName(),user.getPhoneNumber(),"+7",user.getPhoneNumber(),null);
+//                    System.out.println(user.getName()+user.getPhoneNumber()+"+7"+user.getPhoneNumber());
+//
+//                    ItemList itemList = new ItemList("2ee40cbd-9d1e-463b-b61c-9731579e1034","4475cf55-0dfb-4fb4-a110-fa61f7c87b81",null,null,100.0,3);
+//                    List<ItemList> item1 = new ArrayList<>();
+//                    item1.add(itemList);
+//                    Order order1 = new Order(null,null, "a4c346cd-7ad0-425b-abbb-b950f83ac653","TOGO", client,item1,null,null,false,null);
+//
+//                  String str1 = order1.sendOrder(order1, client,item1);
+//                    System.out.println(str1);
 
-                    Client client = new Client(user.getName(),user.getPhoneNumber(),"+7",user.getPhoneNumber(),null);
-                    System.out.println(user.getName()+user.getPhoneNumber()+"+7"+user.getPhoneNumber());
-
-                    ItemList itemList = new ItemList("2ee40cbd-9d1e-463b-b61c-9731579e1034","4475cf55-0dfb-4fb4-a110-fa61f7c87b81",null,null,100.0,3);
-                    List<ItemList> item1 = new ArrayList<>();
-                    item1.add(itemList);
-                    Order order1 = new Order(null,null, "a4c346cd-7ad0-425b-abbb-b950f83ac653","TOGO", client,item1,null,null,false,null);
-
-                  String str1 = order1.sendOrder(order1, client,item1);
-                    System.out.println(str1);
+                    createOrder(chatId);
 
                     break;
 
@@ -187,22 +189,82 @@ public class TelegramBot extends TelegramLongPollingBot {
             long messageId = update.getCallbackQuery().getMessage().getMessageId();
             long chatId = update.getCallbackQuery().getMessage().getChatId();
 
-            if(callbackData.equals("classicMenu")){
-                System.out.println("equals кофе");
-                String text = "Выберите напиток";
-                try {
-                    executeEditMessageText(text, chatId, messageId);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            else if(callbackData.equals("Авторское меню")){
-                String text = "You pressed NO button";
-                executeEditMessageText(text, chatId, messageId);
-            }
-            else if(callbackData.equals("Не кофе")){
+            switch (callbackData){
+                case ("classicMenu"):
+                    String text = "Выберите напиток";
+                    classiCoffeeEditText(text,chatId,messageId);
+
+                    break;
+                case ("Kapuchino"):
+                    String textValuesKapuchino = "Выберите объем";
+
+
+                    valuesDrink(textValuesKapuchino,chatId,messageId);
+
+                    break;
+
+                case ("FletUayt"):
+                    String textValuesFletUayt = "Выберите объем";
+
+
+                    valuesDrink(textValuesFletUayt,chatId,messageId);
+
+                    break;
+                case ("Raf"):
+                    String textValuesRaf = "Выберите объем";
+
+
+                    valuesDrink(textValuesRaf,chatId,messageId);
+
+                    break;
+                case ("Mokko"):
+                    String textValuesMokko = "Выберите объем";
+
+
+                    valuesDrink(textValuesMokko,chatId,messageId);
+
+                    break;
+                case ("Latte"):
+                    String textValuesLatte = "Выберите объем";
+
+
+                    valuesDrink(textValuesLatte,chatId,messageId);
+
+                    break;
+                case ("Americano"):
+                    String textValuesAmericano = "Выберите объем";
+
+
+                    valuesDrink(textValuesAmericano,chatId,messageId);
+
+                    break;
+
+
+
 
             }
+
+//            if(callbackData.equals("classicMenu")){
+//                //new order(null,null,null,null,null,null,null,0.0,false,null);
+//
+//                System.out.println("equals кофе");
+//                String text = "Выберите напиток";
+//
+//                try {
+//                    executeEditMessageText(text, chatId, messageId);
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//            else if(callbackData.equals("authorMenu")){
+//                order.setGuid("sss");
+//                System.out.println(order.getGuid());
+//                String text = "You pressed NO button";
+//                executeEditMessageText(text, chatId, messageId);
+//            }
+//            else if(callbackData.equals("Не кофе")){
+//
+//            }
         }
 
 
@@ -222,13 +284,15 @@ public class TelegramBot extends TelegramLongPollingBot {
         message.setText(text);
         message.setMessageId((int) messageId);
 
+
         InlineKeyboardMarkup keyboardMarkup = new InlineKeyboardMarkup();
         List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
         List<InlineKeyboardButton> rowInline1 = new ArrayList<>();
 
 
         var CLASSIC_MENU = new InlineKeyboardButton();
-        CLASSIC_MENU.setText("Капучино");
+        String settext1 = menuRepo.findById(1).get().getName();
+        CLASSIC_MENU.setText(settext1);
         CLASSIC_MENU.setCallbackData("classicMenu");
         rowInline1.add(CLASSIC_MENU);
 
@@ -250,8 +314,139 @@ public class TelegramBot extends TelegramLongPollingBot {
     }
 
 
+    private void classiCoffeeEditText(String text, long chatId, long messageId){
+        EditMessageText message = new EditMessageText();
+        message.setChatId(String.valueOf(chatId));
+        message.setText(text);
+        message.setMessageId((int) messageId);
+
+        // Капучино Латте Раф Мокко Флет Уайт Американо
+
+        InlineKeyboardMarkup keyboardMarkup = new InlineKeyboardMarkup();
+        List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
+        List<InlineKeyboardButton> rowInline1 = new ArrayList<>();
+        List<InlineKeyboardButton> rowInline2 = new ArrayList<>();
+        List<InlineKeyboardButton> rowInline3 = new ArrayList<>();
+        List<InlineKeyboardButton> rowInline4 = new ArrayList<>();
+        List<InlineKeyboardButton> rowInline5 = new ArrayList<>();
+        List<InlineKeyboardButton> rowInline6 = new ArrayList<>();
+
+
+        var Kapuchino = new InlineKeyboardButton();
+        String settext1 = "Капучино";
+        Kapuchino.setText(settext1);
+        Kapuchino.setCallbackData("Kapuchino");
+        rowInline1.add(Kapuchino);
+        rowsInline.add(rowInline1);
+
+        var Latte = new InlineKeyboardButton();
+        String settext2 = "Латте";
+        Latte.setText(settext2);
+        Latte.setCallbackData("Latte");
+        rowInline2.add(Latte);
+        rowsInline.add(rowInline2);
+
+        var Raf = new InlineKeyboardButton();
+        String settext3 = "Раф";
+        Raf.setText(settext3);
+        Raf.setCallbackData("Raf");
+        rowInline3.add(Raf);
+        rowsInline.add(rowInline3);
+
+        var Mokko = new InlineKeyboardButton();
+        String settext4 = "Мокко";
+        Mokko.setText(settext4);
+        Mokko.setCallbackData("Mokko");
+        rowInline4.add(Mokko);
+        rowsInline.add(rowInline4);
+
+        var FletUayt = new InlineKeyboardButton();
+        String settext5 = "Флет Уайт";
+        FletUayt.setText(settext5);
+        FletUayt.setCallbackData("FletUayt");
+        rowInline5.add(FletUayt);
+        rowsInline.add(rowInline5);
+
+        var Americano = new InlineKeyboardButton();
+        String settext6 = "Американо";
+        Americano.setText(settext6);
+        Americano.setCallbackData("Americano");
+        rowInline6.add(Americano);
+        rowsInline.add(rowInline6);
+
+
+
+        keyboardMarkup.setKeyboard(rowsInline);
+        message.setReplyMarkup(keyboardMarkup);
+
+
+
+
+        try {
+            execute(message);
+        } catch (TelegramApiException e) {
+            //log.error(ERROR_TEXT + e.getMessage());
+        }
+    }
+
+
+
+    private void valuesDrink(String text, long chatId, long messageId){
+        EditMessageText message = new EditMessageText();
+        message.setChatId(String.valueOf(chatId));
+        message.setText(text);
+        message.setMessageId((int) messageId);
+
+
+        InlineKeyboardMarkup keyboardMarkup = new InlineKeyboardMarkup();
+        List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
+        List<InlineKeyboardButton> rowInline1 = new ArrayList<>();
+        List<InlineKeyboardButton> rowInline2 = new ArrayList<>();
+        List<InlineKeyboardButton> rowInline3 = new ArrayList<>();
+
+
+        var smallValues = new InlineKeyboardButton();
+        String settext1 = "250 мл";
+        smallValues.setText(settext1);
+        smallValues.setCallbackData("smallValues");
+        rowInline1.add(smallValues);
+        rowsInline.add(rowInline1);
+
+        var mediumValues = new InlineKeyboardButton();
+        String settext2 = "350 мл";
+        mediumValues.setText(settext2);
+        mediumValues.setCallbackData("mediumValues");
+        rowInline2.add(mediumValues);
+        rowsInline.add(rowInline2);
+
+        var largeValues = new InlineKeyboardButton();
+        String settext3 = "450 мл";
+        largeValues.setText(settext3);
+        largeValues.setCallbackData("largeValues");
+        rowInline3.add(largeValues);
+        rowsInline.add(rowInline3);
+
+
+
+
+
+        keyboardMarkup.setKeyboard(rowsInline);
+        message.setReplyMarkup(keyboardMarkup);
+
+
+
+
+        try {
+            execute(message);
+        } catch (TelegramApiException e) {
+            //log.error(ERROR_TEXT + e.getMessage());
+        }
+    }
+
+
 
     public void createOrder(long chatid){
+
 
         SendMessage message = new SendMessage();
         message.setChatId(String.valueOf(chatid));

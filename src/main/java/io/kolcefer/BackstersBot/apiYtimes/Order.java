@@ -8,10 +8,11 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
-
+@Component
 public class Order {
 
     private String guid;
@@ -96,18 +97,18 @@ public class Order {
         return null;
     }
 
-    public Order(String guid, String status, String shopGuid, String type, Client client, List<ItemList> itemList, String comment, Double paidValue, boolean printFiscalCheck, String printFiscalCheckEmail) {
-        this.guid = guid;
-        this.status = status;
-        this.shopGuid = shopGuid;
-        this.type = type;
-        this.client = client;
-        this.itemList = itemList;
-        this.comment = comment;
-        this.paidValue = paidValue;
-        this.printFiscalCheck = printFiscalCheck;
-        this.printFiscalCheckEmail = printFiscalCheckEmail;
-    }
+//    public Order(String guid, String status, String shopGuid, String type, Client client, List<ItemList> itemList, String comment, Double paidValue, boolean printFiscalCheck, String printFiscalCheckEmail) {
+//        this.guid = guid;
+//        this.status = status;
+//        this.shopGuid = shopGuid;
+//        this.type = type;
+//        this.client = client;
+//        this.itemList = itemList;
+//        this.comment = comment;
+//        this.paidValue = paidValue;
+//        this.printFiscalCheck = printFiscalCheck;
+//        this.printFiscalCheckEmail = printFiscalCheckEmail;
+//    }
 
     public String getGuid() {
         return guid;
