@@ -1,199 +1,339 @@
-2024-04-25 10:35:55,807 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 17.0.10 on WIN-FC0F682E6N6 with PID 6472 (C:\Users\user\Documents\Project\target\classes started by user in C:\Users\user\Documents\Project)
-2024-04-25 10:35:55,813 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
-2024-04-25 10:35:56,486 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-04-25 10:35:56,558 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 59 ms. Found 2 JPA repository interfaces.
-2024-04-25 10:35:56,941 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-04-25 10:35:56,992 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.9.Final
-2024-04-25 10:35:57,142 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2024-04-25 10:35:57,237 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
-2024-04-25 10:35:57,423 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
-2024-04-25 10:35:57,443 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-2024-04-25 10:35:58,053 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2024-04-25 10:35:58,061 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-04-25 10:35:58,526 WARN org.springframework.context.annotation.AnnotationConfigApplicationContext [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'botInitializer': Unsatisfied dependency expressed through field 'bot'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'telegramBot': Unsatisfied dependency expressed through field 'order'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'io.kolcefer.BackstersBot.apiYtimes.Order' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
-2024-04-25 10:35:58,527 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-04-25 10:35:58,530 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown initiated...
-2024-04-25 10:35:58,539 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown completed.
-2024-04-25 10:35:58,550 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [main] 
-
-Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-2024-04-25 10:35:58,572 ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [main] 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Field order in io.kolcefer.BackstersBot.service.TelegramBot required a bean of type 'io.kolcefer.BackstersBot.apiYtimes.Order' that could not be found.
-
-The injection point has the following annotations:
-	- @org.springframework.beans.factory.annotation.Autowired(required=true)
-
-
-Action:
-
-Consider defining a bean of type 'io.kolcefer.BackstersBot.apiYtimes.Order' in your configuration.
-
-2024-04-25 10:36:31,021 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 17.0.10 on WIN-FC0F682E6N6 with PID 7448 (C:\Users\user\Documents\Project\target\classes started by user in C:\Users\user\Documents\Project)
-2024-04-25 10:36:31,024 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
-2024-04-25 10:36:31,636 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-04-25 10:36:31,709 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 62 ms. Found 2 JPA repository interfaces.
-2024-04-25 10:36:32,126 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-04-25 10:36:32,161 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.9.Final
-2024-04-25 10:36:32,279 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2024-04-25 10:36:32,355 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
-2024-04-25 10:36:32,511 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
-2024-04-25 10:36:32,529 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-2024-04-25 10:36:33,129 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2024-04-25 10:36:33,138 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-04-25 10:36:33,151 WARN org.springframework.context.annotation.AnnotationConfigApplicationContext [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'order' defined in file [C:\Users\user\Documents\Project\target\classes\io\kolcefer\BackstersBot\apiYtimes\Order.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'java.lang.String' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
-2024-04-25 10:36:33,151 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-04-25 10:36:33,154 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown initiated...
-2024-04-25 10:36:33,189 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown completed.
-2024-04-25 10:36:33,198 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [main] 
-
-Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-2024-04-25 10:36:33,220 ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [main] 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Parameter 0 of constructor in io.kolcefer.BackstersBot.apiYtimes.Order required a bean of type 'java.lang.String' that could not be found.
-
-
-Action:
-
-Consider defining a bean of type 'java.lang.String' in your configuration.
-
-2024-04-25 10:37:40,531 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 17.0.10 on WIN-FC0F682E6N6 with PID 10884 (C:\Users\user\Documents\Project\target\classes started by user in C:\Users\user\Documents\Project)
-2024-04-25 10:37:40,534 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
-2024-04-25 10:37:41,166 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-04-25 10:37:41,247 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 68 ms. Found 2 JPA repository interfaces.
-2024-04-25 10:37:41,644 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-04-25 10:37:41,678 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.9.Final
-2024-04-25 10:37:41,784 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2024-04-25 10:37:41,863 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
-2024-04-25 10:37:42,014 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
-2024-04-25 10:37:42,032 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-2024-04-25 10:37:42,593 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2024-04-25 10:37:42,601 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-04-25 10:37:43,875 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Started BackstersBotApplication in 3.781 seconds (JVM running for 4.722)
-2024-04-25 10:39:32,571 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-04-25 10:39:32,573 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2024-04-25 10:39:32,579 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
-2024-04-25 10:40:11,015 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 17.0.10 on WIN-FC0F682E6N6 with PID 10416 (C:\Users\user\Documents\Project\target\classes started by user in C:\Users\user\Documents\Project)
-2024-04-25 10:40:11,018 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
-2024-04-25 10:40:11,596 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-04-25 10:40:11,666 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 59 ms. Found 2 JPA repository interfaces.
-2024-04-25 10:40:12,023 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-04-25 10:40:12,059 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.9.Final
-2024-04-25 10:40:12,169 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2024-04-25 10:40:12,244 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
-2024-04-25 10:40:12,544 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
-2024-04-25 10:40:12,562 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-2024-04-25 10:40:13,081 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2024-04-25 10:40:13,088 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-04-25 10:40:14,258 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Started BackstersBotApplication in 3.698 seconds (JVM running for 4.607)
-2024-04-25 10:41:25,730 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-04-25 10:41:25,732 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2024-04-25 10:41:25,741 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
-2024-04-25 10:41:34,111 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 17.0.10 on WIN-FC0F682E6N6 with PID 10340 (C:\Users\user\Documents\Project\target\classes started by user in C:\Users\user\Documents\Project)
-2024-04-25 10:41:34,114 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
-2024-04-25 10:41:34,774 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-04-25 10:41:34,865 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 76 ms. Found 2 JPA repository interfaces.
-2024-04-25 10:41:35,288 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-04-25 10:41:35,324 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.9.Final
-2024-04-25 10:41:35,443 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2024-04-25 10:41:35,518 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
-2024-04-25 10:41:35,669 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
-2024-04-25 10:41:35,688 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-2024-04-25 10:41:36,220 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2024-04-25 10:41:36,230 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-04-25 10:41:37,366 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Started BackstersBotApplication in 3.626 seconds (JVM running for 4.693)
-2024-04-25 10:42:18,749 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-04-25 10:42:18,749 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2024-04-25 10:42:18,764 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
-2024-04-25 10:44:10,020 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 17.0.10 on WIN-FC0F682E6N6 with PID 764 (C:\Users\user\Documents\Project\target\classes started by user in C:\Users\user\Documents\Project)
-2024-04-25 10:44:10,023 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
-2024-04-25 10:44:10,653 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-04-25 10:44:10,731 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 58 ms. Found 2 JPA repository interfaces.
-2024-04-25 10:44:11,122 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-04-25 10:44:11,153 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.9.Final
-2024-04-25 10:44:11,263 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2024-04-25 10:44:11,341 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
-2024-04-25 10:44:11,497 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
-2024-04-25 10:44:11,513 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-2024-04-25 10:44:12,044 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2024-04-25 10:44:12,044 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-04-25 10:44:13,213 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Started BackstersBotApplication in 3.617 seconds (JVM running for 4.633)
-2024-04-25 10:45:36,823 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-04-25 10:45:36,823 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2024-04-25 10:45:36,823 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
-2024-04-25 13:41:38,857 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 17.0.10 on WIN-FC0F682E6N6 with PID 12172 (C:\Users\user\Documents\Project\target\classes started by user in C:\Users\user\Documents\Project)
-2024-04-25 13:41:38,857 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
-2024-04-25 13:41:39,438 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-04-25 13:41:39,516 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 60 ms. Found 2 JPA repository interfaces.
-2024-04-25 13:41:39,897 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-04-25 13:41:39,943 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.9.Final
-2024-04-25 13:41:40,053 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2024-04-25 13:41:40,131 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
-2024-04-25 13:41:40,303 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
-2024-04-25 13:41:40,318 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-2024-04-25 13:41:40,865 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2024-04-25 13:41:40,881 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-04-25 13:41:42,047 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Started BackstersBotApplication in 3.586 seconds (JVM running for 4.536)
-2024-04-25 13:42:20,822 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-04-25 13:42:20,822 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2024-04-25 13:42:20,822 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
-2024-04-25 13:43:05,784 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 17.0.10 on WIN-FC0F682E6N6 with PID 11320 (C:\Users\user\Documents\Project\target\classes started by user in C:\Users\user\Documents\Project)
-2024-04-25 13:43:05,784 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
-2024-04-25 13:43:06,310 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-04-25 13:43:06,373 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 45 ms. Found 2 JPA repository interfaces.
-2024-04-25 13:43:06,701 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-04-25 13:43:06,732 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.9.Final
-2024-04-25 13:43:06,857 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2024-04-25 13:43:06,920 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
-2024-04-25 13:43:07,076 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
-2024-04-25 13:43:07,092 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-2024-04-25 13:43:07,627 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2024-04-25 13:43:07,627 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-04-25 13:43:08,867 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Started BackstersBotApplication in 3.481 seconds (JVM running for 4.365)
-2024-04-25 13:43:46,738 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-04-25 13:43:46,738 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2024-04-25 13:43:46,754 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
-2024-04-25 14:03:30,827 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 17.0.10 on WIN-FC0F682E6N6 with PID 11388 (C:\Users\user\Documents\Project\target\classes started by user in C:\Users\user\Documents\Project)
-2024-04-25 14:03:30,830 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
-2024-04-25 14:03:31,367 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-04-25 14:03:31,430 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 57 ms. Found 2 JPA repository interfaces.
-2024-04-25 14:03:31,774 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-04-25 14:03:31,820 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.9.Final
-2024-04-25 14:03:31,914 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2024-04-25 14:03:31,992 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
-2024-04-25 14:03:32,149 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
-2024-04-25 14:03:32,164 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-2024-04-25 14:03:32,711 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2024-04-25 14:03:32,727 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-04-25 14:03:33,902 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Started BackstersBotApplication in 3.469 seconds (JVM running for 4.465)
-2024-04-25 14:03:54,560 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-04-25 14:03:54,560 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2024-04-25 14:03:54,576 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
-2024-04-25 15:57:52,338 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 17.0.10 on WIN-FC0F682E6N6 with PID 9168 (C:\Users\user\Documents\Project\target\classes started by user in C:\Users\user\Documents\Project)
-2024-04-25 15:57:52,338 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
-2024-04-25 15:57:52,978 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-04-25 15:57:53,068 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 69 ms. Found 2 JPA repository interfaces.
-2024-04-25 15:57:53,478 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-04-25 15:57:53,538 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.9.Final
-2024-04-25 15:57:53,689 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2024-04-25 15:57:53,793 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
-2024-04-25 15:57:54,157 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
-2024-04-25 15:57:54,179 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-2024-04-25 15:57:54,827 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2024-04-25 15:57:54,843 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-04-25 15:57:56,186 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Started BackstersBotApplication in 4.305 seconds (JVM running for 5.836)
-2024-04-25 16:14:04,574 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-04-25 16:14:04,577 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2024-04-25 16:14:04,586 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2024-04-26 11:10:19,214 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 17.0.10 on WIN-FC0F682E6N6 with PID 6604 (C:\Users\user\Documents\Project\target\classes started by user in C:\Users\user\Documents\Project)
+2024-04-26 11:10:19,221 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-04-26 11:10:19,968 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-26 11:10:20,063 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 81 ms. Found 2 JPA repository interfaces.
+2024-04-26 11:10:20,639 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-26 11:10:20,724 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.9.Final
+2024-04-26 11:10:20,942 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-04-26 11:10:21,081 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2024-04-26 11:10:21,267 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2024-04-26 11:10:21,288 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2024-04-26 11:10:21,963 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-04-26 11:10:21,970 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-26 11:10:23,655 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Started BackstersBotApplication in 5.04 seconds (JVM running for 6.257)
+2024-04-26 11:11:33,511 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-26 11:11:33,514 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2024-04-26 11:11:33,522 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2024-04-26 11:13:59,653 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 17.0.10 on WIN-FC0F682E6N6 with PID 7732 (C:\Users\user\Documents\Project\target\classes started by user in C:\Users\user\Documents\Project)
+2024-04-26 11:13:59,656 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-04-26 11:14:00,269 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-26 11:14:00,345 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 64 ms. Found 2 JPA repository interfaces.
+2024-04-26 11:14:00,780 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-26 11:14:00,822 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.9.Final
+2024-04-26 11:14:00,931 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-04-26 11:14:01,005 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2024-04-26 11:14:01,157 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2024-04-26 11:14:01,174 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2024-04-26 11:14:01,712 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-04-26 11:14:01,721 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-26 11:14:02,903 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Started BackstersBotApplication in 3.711 seconds (JVM running for 4.932)
+2024-04-26 11:19:52,776 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-26 11:19:52,776 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2024-04-26 11:19:52,808 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2024-04-26 11:20:03,260 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 17.0.10 on WIN-FC0F682E6N6 with PID 2352 (C:\Users\user\Documents\Project\target\classes started by user in C:\Users\user\Documents\Project)
+2024-04-26 11:20:03,268 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-04-26 11:20:03,880 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-26 11:20:03,958 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 62 ms. Found 2 JPA repository interfaces.
+2024-04-26 11:20:04,354 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-26 11:20:04,402 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.9.Final
+2024-04-26 11:20:04,560 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-04-26 11:20:04,638 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2024-04-26 11:20:04,810 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2024-04-26 11:20:04,826 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2024-04-26 11:20:05,498 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-04-26 11:20:05,498 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-26 11:20:07,449 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Started BackstersBotApplication in 4.578 seconds (JVM running for 5.799)
+2024-04-26 11:20:07,449 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-26 11:20:07,476 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2024-04-26 11:20:07,508 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2024-04-26 11:20:35,295 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 17.0.10 on WIN-FC0F682E6N6 with PID 11128 (C:\Users\user\Documents\Project\target\classes started by user in C:\Users\user\Documents\Project)
+2024-04-26 11:20:35,303 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-04-26 11:20:35,877 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-26 11:20:35,939 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 58 ms. Found 2 JPA repository interfaces.
+2024-04-26 11:20:36,377 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-26 11:20:36,424 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.9.Final
+2024-04-26 11:20:36,517 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-04-26 11:20:36,595 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2024-04-26 11:20:36,752 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2024-04-26 11:20:36,767 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2024-04-26 11:20:37,299 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-04-26 11:20:37,314 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-26 11:20:38,460 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Started BackstersBotApplication in 3.617 seconds (JVM running for 4.791)
+2024-04-26 11:23:22,209 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-26 11:23:22,209 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2024-04-26 11:23:22,224 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2024-04-26 11:31:33,998 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 17.0.10 on WIN-FC0F682E6N6 with PID 5896 (C:\Users\user\Documents\Project\target\classes started by user in C:\Users\user\Documents\Project)
+2024-04-26 11:31:34,001 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-04-26 11:31:34,617 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-26 11:31:34,679 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 53 ms. Found 2 JPA repository interfaces.
+2024-04-26 11:31:35,072 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-26 11:31:35,123 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.9.Final
+2024-04-26 11:31:35,274 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-04-26 11:31:35,370 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2024-04-26 11:31:35,691 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2024-04-26 11:31:35,712 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2024-04-26 11:31:36,344 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-04-26 11:31:36,351 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-26 11:33:11,445 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 17.0.10 on WIN-FC0F682E6N6 with PID 6136 (C:\Users\user\Documents\Project\target\classes started by user in C:\Users\user\Documents\Project)
+2024-04-26 11:33:11,445 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-04-26 11:33:12,092 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-26 11:33:12,170 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 57 ms. Found 2 JPA repository interfaces.
+2024-04-26 11:33:12,624 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-26 11:33:12,655 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.9.Final
+2024-04-26 11:33:12,764 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-04-26 11:33:12,842 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2024-04-26 11:33:13,014 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2024-04-26 11:33:13,045 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2024-04-26 11:33:13,729 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-04-26 11:33:13,729 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-26 11:33:14,892 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Started BackstersBotApplication in 3.826 seconds (JVM running for 4.977)
+2024-04-26 11:33:55,220 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-26 11:33:55,220 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2024-04-26 11:33:55,235 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2024-04-26 11:37:45,556 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 17.0.10 on WIN-FC0F682E6N6 with PID 10216 (C:\Users\user\Documents\Project\target\classes started by user in C:\Users\user\Documents\Project)
+2024-04-26 11:37:45,572 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-04-26 11:37:46,105 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-26 11:37:46,183 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 59 ms. Found 2 JPA repository interfaces.
+2024-04-26 11:37:46,558 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-26 11:37:46,590 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.9.Final
+2024-04-26 11:37:46,699 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-04-26 11:37:46,777 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2024-04-26 11:37:47,105 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2024-04-26 11:37:47,121 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2024-04-26 11:37:47,658 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-04-26 11:37:47,658 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-26 11:37:48,821 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Started BackstersBotApplication in 3.649 seconds (JVM running for 4.613)
+2024-04-26 11:47:26,809 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-26 11:47:26,824 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2024-04-26 11:47:26,840 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2024-04-26 11:47:35,852 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 17.0.10 on WIN-FC0F682E6N6 with PID 2208 (C:\Users\user\Documents\Project\target\classes started by user in C:\Users\user\Documents\Project)
+2024-04-26 11:47:35,852 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-04-26 11:47:36,427 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-26 11:47:36,505 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 63 ms. Found 2 JPA repository interfaces.
+2024-04-26 11:47:36,880 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-26 11:47:36,911 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.9.Final
+2024-04-26 11:47:37,020 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-04-26 11:47:37,099 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2024-04-26 11:47:37,397 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2024-04-26 11:47:37,428 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2024-04-26 11:47:37,947 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-04-26 11:47:37,963 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-26 11:48:31,211 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 17.0.10 on WIN-FC0F682E6N6 with PID 7956 (C:\Users\user\Documents\Project\target\classes started by user in C:\Users\user\Documents\Project)
+2024-04-26 11:48:31,211 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-04-26 11:48:31,754 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-26 11:48:31,817 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 48 ms. Found 2 JPA repository interfaces.
+2024-04-26 11:48:32,160 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-26 11:48:32,192 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.9.Final
+2024-04-26 11:48:32,301 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-04-26 11:48:32,379 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2024-04-26 11:48:32,535 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2024-04-26 11:48:32,551 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2024-04-26 11:48:33,087 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-04-26 11:48:33,102 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-26 11:48:34,266 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Started BackstersBotApplication in 3.462 seconds (JVM running for 4.407)
+2024-04-26 11:48:40,458 ERROR org.telegram.telegrambots.updatesreceivers.DefaultBotSession [BackstersBot Telegram Executor] The given id must not be null!; nested exception is java.lang.IllegalArgumentException: The given id must not be null!
+org.springframework.dao.InvalidDataAccessApiUsageException: The given id must not be null!; nested exception is java.lang.IllegalArgumentException: The given id must not be null!
+	at org.springframework.orm.jpa.EntityManagerFactoryUtils.convertJpaAccessExceptionIfPossible(EntityManagerFactoryUtils.java:374)
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:235)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.translateExceptionIfPossible(AbstractEntityManagerFactoryBean.java:551)
+	at org.springframework.dao.support.ChainedPersistenceExceptionTranslator.translateExceptionIfPossible(ChainedPersistenceExceptionTranslator.java:61)
+	at org.springframework.dao.support.DataAccessUtils.translateIfNecessary(DataAccessUtils.java:242)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:152)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:174)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215)
+	at jdk.proxy2/jdk.proxy2.$Proxy91.findById(Unknown Source)
+	at io.kolcefer.BackstersBot.service.TelegramBot.onUpdateReceived(TelegramBot.java:274)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.telegram.telegrambots.meta.generics.LongPollingBot.onUpdatesReceived(LongPollingBot.java:27)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$HandlerThread.run(DefaultBotSession.java:317)
+Caused by: java.lang.IllegalArgumentException: The given id must not be null!
+	at org.springframework.util.Assert.notNull(Assert.java:201)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.findById(SimpleJpaRepository.java:322)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:289)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:137)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:121)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:530)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:286)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:640)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:164)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:81)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
+	... 11 common frames omitted
+2024-04-26 11:49:22,351 ERROR org.telegram.telegrambots.updatesreceivers.DefaultBotSession [BackstersBot Telegram Executor] The given id must not be null!; nested exception is java.lang.IllegalArgumentException: The given id must not be null!
+org.springframework.dao.InvalidDataAccessApiUsageException: The given id must not be null!; nested exception is java.lang.IllegalArgumentException: The given id must not be null!
+	at org.springframework.orm.jpa.EntityManagerFactoryUtils.convertJpaAccessExceptionIfPossible(EntityManagerFactoryUtils.java:374)
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:235)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.translateExceptionIfPossible(AbstractEntityManagerFactoryBean.java:551)
+	at org.springframework.dao.support.ChainedPersistenceExceptionTranslator.translateExceptionIfPossible(ChainedPersistenceExceptionTranslator.java:61)
+	at org.springframework.dao.support.DataAccessUtils.translateIfNecessary(DataAccessUtils.java:242)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:152)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:174)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215)
+	at jdk.proxy2/jdk.proxy2.$Proxy91.findById(Unknown Source)
+	at io.kolcefer.BackstersBot.service.TelegramBot.onUpdateReceived(TelegramBot.java:274)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.telegram.telegrambots.meta.generics.LongPollingBot.onUpdatesReceived(LongPollingBot.java:27)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$HandlerThread.run(DefaultBotSession.java:317)
+Caused by: java.lang.IllegalArgumentException: The given id must not be null!
+	at org.springframework.util.Assert.notNull(Assert.java:201)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.findById(SimpleJpaRepository.java:322)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:289)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:137)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:121)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:530)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:286)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:640)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:164)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:81)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
+	... 11 common frames omitted
+2024-04-26 11:50:14,666 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-26 11:50:14,666 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2024-04-26 11:50:14,681 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2024-04-26 11:50:33,330 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 17.0.10 on WIN-FC0F682E6N6 with PID 11540 (C:\Users\user\Documents\Project\target\classes started by user in C:\Users\user\Documents\Project)
+2024-04-26 11:50:33,330 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-04-26 11:50:33,896 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-26 11:50:33,974 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 60 ms. Found 2 JPA repository interfaces.
+2024-04-26 11:50:34,326 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-26 11:50:34,357 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.9.Final
+2024-04-26 11:50:34,467 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-04-26 11:50:34,545 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2024-04-26 11:50:34,701 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2024-04-26 11:50:34,732 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2024-04-26 11:50:35,312 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-04-26 11:50:35,312 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-26 11:50:36,595 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Started BackstersBotApplication in 3.658 seconds (JVM running for 4.719)
+2024-04-26 11:50:56,254 ERROR org.telegram.telegrambots.updatesreceivers.DefaultBotSession [BackstersBot Telegram Executor] The given id must not be null!; nested exception is java.lang.IllegalArgumentException: The given id must not be null!
+org.springframework.dao.InvalidDataAccessApiUsageException: The given id must not be null!; nested exception is java.lang.IllegalArgumentException: The given id must not be null!
+	at org.springframework.orm.jpa.EntityManagerFactoryUtils.convertJpaAccessExceptionIfPossible(EntityManagerFactoryUtils.java:374)
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:235)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.translateExceptionIfPossible(AbstractEntityManagerFactoryBean.java:551)
+	at org.springframework.dao.support.ChainedPersistenceExceptionTranslator.translateExceptionIfPossible(ChainedPersistenceExceptionTranslator.java:61)
+	at org.springframework.dao.support.DataAccessUtils.translateIfNecessary(DataAccessUtils.java:242)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:152)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:174)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215)
+	at jdk.proxy2/jdk.proxy2.$Proxy91.findById(Unknown Source)
+	at io.kolcefer.BackstersBot.service.TelegramBot.onUpdateReceived(TelegramBot.java:274)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.telegram.telegrambots.meta.generics.LongPollingBot.onUpdatesReceived(LongPollingBot.java:27)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$HandlerThread.run(DefaultBotSession.java:317)
+Caused by: java.lang.IllegalArgumentException: The given id must not be null!
+	at org.springframework.util.Assert.notNull(Assert.java:201)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.findById(SimpleJpaRepository.java:322)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:289)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:137)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:121)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:530)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:286)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:640)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:164)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:81)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
+	... 11 common frames omitted
+2024-04-26 11:51:27,006 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-26 11:51:27,006 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2024-04-26 11:51:27,022 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2024-04-26 11:53:27,817 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 17.0.10 on WIN-FC0F682E6N6 with PID 9660 (C:\Users\user\Documents\Project\target\classes started by user in C:\Users\user\Documents\Project)
+2024-04-26 11:53:27,817 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-04-26 11:53:28,368 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-26 11:53:28,431 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 50 ms. Found 2 JPA repository interfaces.
+2024-04-26 11:53:28,776 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-26 11:53:28,807 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.9.Final
+2024-04-26 11:53:28,918 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-04-26 11:53:28,999 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2024-04-26 11:53:29,155 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2024-04-26 11:53:29,171 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2024-04-26 11:53:29,702 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-04-26 11:53:29,702 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-26 11:53:30,844 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Started BackstersBotApplication in 3.419 seconds (JVM running for 4.311)
+2024-04-26 11:53:39,684 ERROR org.telegram.telegrambots.updatesreceivers.DefaultBotSession [BackstersBot Telegram Executor] No value present
+java.util.NoSuchElementException: No value present
+	at java.base/java.util.Optional.get(Optional.java:143)
+	at io.kolcefer.BackstersBot.service.TelegramBot.onUpdateReceived(TelegramBot.java:280)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.telegram.telegrambots.meta.generics.LongPollingBot.onUpdatesReceived(LongPollingBot.java:27)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$HandlerThread.run(DefaultBotSession.java:317)
+2024-04-26 11:55:18,722 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-26 11:55:18,722 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2024-04-26 11:55:18,738 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2024-04-26 11:55:30,241 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 17.0.10 on WIN-FC0F682E6N6 with PID 10620 (C:\Users\user\Documents\Project\target\classes started by user in C:\Users\user\Documents\Project)
+2024-04-26 11:55:30,241 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-04-26 11:55:30,794 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-26 11:55:30,872 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 63 ms. Found 2 JPA repository interfaces.
+2024-04-26 11:55:31,231 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-26 11:55:31,262 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.9.Final
+2024-04-26 11:55:31,372 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-04-26 11:55:31,450 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2024-04-26 11:55:31,606 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2024-04-26 11:55:31,622 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2024-04-26 11:55:32,109 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-04-26 11:55:32,109 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-26 11:55:33,378 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Started BackstersBotApplication in 3.524 seconds (JVM running for 4.499)
+2024-04-26 11:55:49,356 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-26 11:55:49,371 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2024-04-26 11:55:49,403 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2024-04-26 11:55:55,963 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Starting BackstersBotApplication using Java 17.0.10 on WIN-FC0F682E6N6 with PID 7452 (C:\Users\user\Documents\Project\target\classes started by user in C:\Users\user\Documents\Project)
+2024-04-26 11:55:55,963 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-04-26 11:55:56,496 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-26 11:55:56,558 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 52 ms. Found 2 JPA repository interfaces.
+2024-04-26 11:55:56,886 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-26 11:55:56,934 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.9.Final
+2024-04-26 11:55:57,044 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-04-26 11:55:57,109 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2024-04-26 11:55:57,265 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2024-04-26 11:55:57,296 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2024-04-26 11:55:57,812 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-04-26 11:55:57,812 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-26 11:55:59,003 INFO io.kolcefer.BackstersBot.BackstersBotApplication [main] Started BackstersBotApplication in 3.446 seconds (JVM running for 4.326)
+2024-04-26 11:56:55,726 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-26 11:56:55,726 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2024-04-26 11:56:55,742 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.

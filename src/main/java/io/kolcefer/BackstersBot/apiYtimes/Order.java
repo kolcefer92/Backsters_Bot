@@ -29,7 +29,7 @@ public class Order {
     private String printFiscalCheckEmail;
 
 
-    public String sendOrder(Order order1, Client client, List<ItemList> list){
+    public String sendOrder(Order order1){
         System.out.println("попали в sendOrder");
 
 
@@ -48,6 +48,7 @@ public class Order {
 
            // Order order1 = new Order(null,null, "a4c346cd-7ad0-425b-abbb-b950f83ac653","TOGO", client,list,null,null,false,null);
             String requestBody = objectMapper.writeValueAsString(order1);
+            System.out.println(requestBody);
 
             // Задаем заголовки запроса
             HttpHeaders headers = new HttpHeaders();

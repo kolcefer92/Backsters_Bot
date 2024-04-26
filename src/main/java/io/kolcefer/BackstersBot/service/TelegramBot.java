@@ -63,6 +63,12 @@ public class TelegramBot extends TelegramLongPollingBot {
     @Autowired
     Order order;
 
+    @Autowired
+    ItemList itemList;
+
+    @Autowired
+    Client client;
+
 
 
 
@@ -126,9 +132,20 @@ public class TelegramBot extends TelegramLongPollingBot {
 
                 case "/newOrder":
                  //   Order order = new Order(null,null,null,null,null,null,null,0.0,false,null);
-                    order.setGuid(null);
-                    order.setStatus(null);
-                    order.set
+                  //  Order order1 = new Order(null,null, "a4c346cd-7ad0-425b-abbb-b950f83ac653","TOGO", client,item1,null,null,false,null);
+                   // order.setGuid(null);
+                   // order.setStatus(null);
+                    order.setShopGuid("a4c346cd-7ad0-425b-abbb-b950f83ac653");
+                    order.setType("TOGO");
+
+                    client.setPhoneCode("+7");
+                    client.setPhone(userRepo.findById(chatId).get().getPhoneNumber());
+                    client.setCardNumber(userRepo.findById(chatId).get().getPhoneNumber());
+                    client.setName(userRepo.findById(chatId).get().getName());
+
+                    order.setClient(client);
+
+
 
 
 
@@ -200,6 +217,8 @@ public class TelegramBot extends TelegramLongPollingBot {
 
                     break;
                 case ("Kapuchino"):
+                    itemList.setMenuItemGuid("2ee40cbd-9d1e-463b-b61c-9731579e1034");
+                    System.out.println(itemList.getMenuTypeGuid());
                     String textValuesKapuchino = "Выберите объем";
 
 
@@ -245,6 +264,32 @@ public class TelegramBot extends TelegramLongPollingBot {
 
 
                 case ("smallValues"):
+                    System.out.println("Попали в конфигуратор");
+                    System.out.println(itemList.getMenuItemGuid());
+
+             String s = itemList.getMenuItemGuid();
+//                    Menu menu1 = menuRepo.getReferenceById(s);
+//                    System.out.println("Загрузили сстроку из бд");
+//                    String itemGuid = menu1.getGuid_250();
+                    //System.out.println(menuRepo.findById(s).get().getGuid_250());
+
+                    itemList.setMenuTypeGuid(menuRepo.findById(s).get().getGuid_250());
+
+                    System.out.println("Записали итем");
+
+                    itemList.setPriceWithDiscount((double)menuRepo.findById(s).get().getPrice_250());
+                    System.out.println(itemList.getPriceWithDiscount());
+                    System.out.println("Записали колличество");
+
+                    itemList.setQuantity(1);
+                    List<ItemList> items = new ArrayList<>();
+                    items.add(itemList);
+                    order.setItemList(items);
+
+                    order.sendOrder(order);
+
+                    System.out.println("Попали в сироп");
+
                     String textsmallValues = "Выберите сироп";
 
 
@@ -320,7 +365,7 @@ public class TelegramBot extends TelegramLongPollingBot {
 
 
         var CLASSIC_MENU = new InlineKeyboardButton();
-        String settext1 = menuRepo.findById(1).get().getName();
+        String settext1 = "Кофе";
         CLASSIC_MENU.setText(settext1);
         CLASSIC_MENU.setCallbackData("classicMenu");
         rowInline1.add(CLASSIC_MENU);

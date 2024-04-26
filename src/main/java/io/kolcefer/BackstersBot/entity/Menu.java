@@ -11,9 +11,10 @@ import javax.persistence.*;
 @Table(name = "TableMenu2")
 
 public class Menu {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
+    @Id
     private String guid_category;
     private String guid_250;
     private int price_250;
