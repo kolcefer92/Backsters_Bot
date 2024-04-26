@@ -75,6 +75,9 @@ public class TelegramBot extends TelegramLongPollingBot {
 
 
     public  Map<Long, Integer> userStates = new HashMap<>();
+    public  Map<String, Integer> supplements = new HashMap<>();
+    List<ItemList> items = new ArrayList<>();
+    public static String supplementText = "Ваш заказ - ";
 
     @Override
 
@@ -218,7 +221,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                     break;
                 case ("Kapuchino"):
                     itemList.setMenuItemGuid("2ee40cbd-9d1e-463b-b61c-9731579e1034");
-                    System.out.println(itemList.getMenuTypeGuid());
+                    //  System.out.println(itemList.getMenuTypeGuid());
                     String textValuesKapuchino = "Выберите объем";
 
 
@@ -227,6 +230,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                     break;
 
                 case ("FletUayt"):
+                    itemList.setMenuItemGuid("cba009e4-655a-4951-9d57-86058a6dec3b");
                     String textValuesFletUayt = "Выберите объем";
 
 
@@ -235,6 +239,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                     break;
                 case ("Raf"):
                     String textValuesRaf = "Выберите объем";
+                    itemList.setMenuItemGuid("930c7711-4667-405d-b36f-5d7ee5e291df");
 
 
                     valuesDrink(textValuesRaf,chatId,messageId);
@@ -242,6 +247,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                     break;
                 case ("Mokko"):
                     String textValuesMokko = "Выберите объем";
+                    itemList.setMenuItemGuid("23aa31da-c475-4140-8e0c-707729f41ce1");
 
 
                     valuesDrink(textValuesMokko,chatId,messageId);
@@ -249,6 +255,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                     break;
                 case ("Latte"):
                     String textValuesLatte = "Выберите объем";
+                    itemList.setMenuItemGuid("7ce68078-b651-41a1-8060-6129c6957543");
 
 
                     valuesDrink(textValuesLatte,chatId,messageId);
@@ -256,6 +263,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                     break;
                 case ("Americano"):
                     String textValuesAmericano = "Выберите объем";
+                    itemList.setMenuItemGuid("bde9729c-d876-4df8-bf5a-74ffe0025f6f");
 
 
                     valuesDrink(textValuesAmericano,chatId,messageId);
@@ -264,41 +272,28 @@ public class TelegramBot extends TelegramLongPollingBot {
 
 
                 case ("smallValues"):
-                    System.out.println("Попали в конфигуратор");
-                    System.out.println(itemList.getMenuItemGuid());
 
-             String s = itemList.getMenuItemGuid();
-//                    Menu menu1 = menuRepo.getReferenceById(s);
-//                    System.out.println("Загрузили сстроку из бд");
-//                    String itemGuid = menu1.getGuid_250();
-                    //System.out.println(menuRepo.findById(s).get().getGuid_250());
+                    itemList.setMenuTypeGuid(menuRepo.findById(itemList.getMenuItemGuid()).get().getGuid_250());
+                    itemList.setPriceWithDiscount((double)menuRepo.findById(itemList.getMenuItemGuid()).get().getPrice_250());
 
-                    itemList.setMenuTypeGuid(menuRepo.findById(s).get().getGuid_250());
 
-                    System.out.println("Записали итем");
-
-                    itemList.setPriceWithDiscount((double)menuRepo.findById(s).get().getPrice_250());
-                    System.out.println(itemList.getPriceWithDiscount());
-                    System.out.println("Записали колличество");
-
-                    itemList.setQuantity(1);
-                    List<ItemList> items = new ArrayList<>();
-                    items.add(itemList);
-                    order.setItemList(items);
-
-                    order.sendOrder(order);
-
-                    System.out.println("Попали в сироп");
+//                    // itemList.setQuantity(1);
+//                    List<ItemList> items = new ArrayList<>();
+//                    items.add(itemList);
+//                    order.setItemList(items);
 
                     String textsmallValues = "Выберите сироп";
-
-
                     supplementList(textsmallValues,chatId,messageId);
 
                     break;
 
                 case ("mediumValues"):
+
+
                     String textmediumValues = "Выберите сироп";
+
+                    itemList.setMenuTypeGuid(menuRepo.findById(itemList.getMenuItemGuid()).get().getGuid_350());
+                    itemList.setPriceWithDiscount((double)menuRepo.findById(itemList.getMenuItemGuid()).get().getPrice_350());
 
 
                     supplementList(textmediumValues,chatId,messageId);
@@ -306,10 +301,62 @@ public class TelegramBot extends TelegramLongPollingBot {
                     break;
 
                 case ("largelValues"):
+
                     String textlargelValues = "Выберите сироп";
 
+                    itemList.setMenuTypeGuid(menuRepo.findById(itemList.getMenuItemGuid()).get().getGuid_450());
+                    itemList.setPriceWithDiscount((double)menuRepo.findById(itemList.getMenuItemGuid()).get().getPrice_450());
 
                     supplementList(textlargelValues,chatId,messageId);
+
+                    break;
+
+
+
+                case ("supplementCaramel"):
+                    System.out.println("попали в обработчик карамели");
+
+
+                    if(supplements.containsKey("051e3f31-c789-4ae5-9f52-d406282549bd")){
+                        int i = supplements.get("051e3f31-c789-4ae5-9f52-d406282549bd") + 1;
+                        supplements.remove("051e3f31-c789-4ae5-9f52-d406282549bd");
+                        supplements.put("051e3f31-c789-4ae5-9f52-d406282549bd",i);
+                    }
+                    else {
+                        supplements.put("051e3f31-c789-4ae5-9f52-d406282549bd", 1);
+
+                    }
+
+                    String supplement1 = supplementText;
+                    String supplementText = supplement1+menuRepo.findById(itemList.getMenuItemGuid()).get().getName() +
+                            " c сиропом Карамель" +"("+ supplements.get("051e3f31-c789-4ae5-9f52-d406282549bd")+") \uD83D\uDFE2";
+
+                    supplementList(supplementText,chatId,messageId);
+                    System.out.println(supplements.get("051e3f31-c789-4ae5-9f52-d406282549bd"));
+
+                    break;
+
+
+                case ("supplementVanila"):
+                    System.out.println("попали в обработчик карамели");
+
+
+                    if(supplements.containsKey("051e3f31-c789-4ae5-9f52-d406282549bd")){
+                        int i = supplements.get("051e3f31-c789-4ae5-9f52-d406282549bd") + 1;
+                        supplements.remove("051e3f31-c789-4ae5-9f52-d406282549bd");
+                        supplements.put("051e3f31-c789-4ae5-9f52-d406282549bd",i);
+                    }
+                    else {
+                        supplements.put("051e3f31-c789-4ae5-9f52-d406282549bd", 1);
+
+                    }
+
+                    String supplement2 = TelegramBot.supplementText;
+                    supplementText = supplement2 +menuRepo.findById(itemList.getMenuItemGuid()).get().getName() +
+                            " c сиропом Карамель" +"("+ supplements.get("051e3f31-c789-4ae5-9f52-d406282549bd")+") \uD83D\uDFE2";
+
+                    supplementList(supplementText,chatId,messageId);
+                    System.out.println(supplements.get("051e3f31-c789-4ae5-9f52-d406282549bd"));
 
                     break;
 
