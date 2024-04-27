@@ -2,6 +2,7 @@ package io.kolcefer.BackstersBot.service;
 
 
 
+import io.kolcefer.BackstersBot.Tools.SupplementLight;
 import io.kolcefer.BackstersBot.apiYtimes.*;
 import io.kolcefer.BackstersBot.config.BotConfig;
 
@@ -68,6 +69,9 @@ public class TelegramBot extends TelegramLongPollingBot {
 
     @Autowired
     Client client;
+
+    @Autowired
+    SupplementLight supplementLight;
 
 
 
@@ -318,14 +322,24 @@ public class TelegramBot extends TelegramLongPollingBot {
 
 
                     if(supplements.containsKey("051e3f31-c789-4ae5-9f52-d406282549bd")){
-                        int i = supplements.get("051e3f31-c789-4ae5-9f52-d406282549bd") + 1;
+                        //int i = supplements.get("051e3f31-c789-4ae5-9f52-d406282549bd") + 1;
+                        supplementLight.allFalse();
                         supplements.remove("051e3f31-c789-4ae5-9f52-d406282549bd");
-                        supplements.put("051e3f31-c789-4ae5-9f52-d406282549bd",i);
-                    }
-                    else {
-                        supplements.put("051e3f31-c789-4ae5-9f52-d406282549bd", 1);
+                       // supplements.put("051e3f31-c789-4ae5-9f52-d406282549bd",i);
 
                     }
+                    else {
+                        supplementLight.allFalse();
+                        supplements.clear();
+                        supplements.put("051e3f31-c789-4ae5-9f52-d406282549bd", 1);
+                        supplementLight.setSupplementCaramel(true);
+
+
+                    }
+                    //если лампочка не горит, запускаем метод выкл все, потом вкл карамель лампу.
+                    //если лампа горит, то просто выкл все
+                    //тут же очищаем мапу
+                    //а если не горит, очищаем мапу и добавляем карамель
 
                     String supplement1 = supplementText;
                     String supplementText = supplement1+menuRepo.findById(itemList.getMenuItemGuid()).get().getName() +
@@ -580,7 +594,14 @@ public class TelegramBot extends TelegramLongPollingBot {
 
 
         var supplementCaramel = new InlineKeyboardButton();
-        String settext1 = "Карамель";
+        //🟢
+        String settext1;
+        if(supplementLight.isSupplementCaramel()) {
+            settext1 = "Карамель\uD83D\uDFE2";
+        }
+        else
+             settext1 = "Карамель";
+
         supplementCaramel.setText(settext1);
         supplementCaramel.setCallbackData("supplementCaramel");
         rowInline1.add(supplementCaramel);
