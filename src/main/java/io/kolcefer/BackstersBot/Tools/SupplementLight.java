@@ -10,9 +10,13 @@ import org.springframework.stereotype.Component;
 @Setter
 public class SupplementLight {
     boolean supplementCaramel = false;
+    boolean supplementVanila = false;
+    boolean supplementLesnoyOreh =false;
 
     public void allFalse(){
         this.supplementCaramel = false;
+        this.supplementVanila = false;
+        this.supplementLesnoyOreh =false;
     }
 
 

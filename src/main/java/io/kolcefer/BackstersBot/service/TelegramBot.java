@@ -341,36 +341,52 @@ public class TelegramBot extends TelegramLongPollingBot {
                     //тут же очищаем мапу
                     //а если не горит, очищаем мапу и добавляем карамель
 
-                    String supplement1 = supplementText;
-                    String supplementText = supplement1+menuRepo.findById(itemList.getMenuItemGuid()).get().getName() +
-                            " c сиропом Карамель" +"("+ supplements.get("051e3f31-c789-4ae5-9f52-d406282549bd")+") \uD83D\uDFE2";
+                    //String supplement1 = supplementText;
+                    String supplementText = "Выберите добавки для "+menuRepo.findById(itemList.getMenuItemGuid()).get().getName();
 
                     supplementList(supplementText,chatId,messageId);
-                    System.out.println(supplements.get("051e3f31-c789-4ae5-9f52-d406282549bd"));
+                    //System.out.println(supplements.get("051e3f31-c789-4ae5-9f52-d406282549bd"));
 
                     break;
 
 
                 case ("supplementVanila"):
-                    System.out.println("попали в обработчик карамели");
+                    if(supplements.containsKey("ebfd782f-bbe7-4a4b-9926-3fc5dc8c574b")){
+                        supplementLight.allFalse();
+                        supplements.remove("ebfd782f-bbe7-4a4b-9926-3fc5dc8c574b");
 
-
-                    if(supplements.containsKey("051e3f31-c789-4ae5-9f52-d406282549bd")){
-                        int i = supplements.get("051e3f31-c789-4ae5-9f52-d406282549bd") + 1;
-                        supplements.remove("051e3f31-c789-4ae5-9f52-d406282549bd");
-                        supplements.put("051e3f31-c789-4ae5-9f52-d406282549bd",i);
                     }
                     else {
-                        supplements.put("051e3f31-c789-4ae5-9f52-d406282549bd", 1);
+                        supplementLight.allFalse();
+                        supplements.clear();
+                        supplements.put("ebfd782f-bbe7-4a4b-9926-3fc5dc8c574b", 1);
+                        supplementLight.setSupplementVanila(true);
 
                     }
+                    String supplementText1 = "Выберите добавки для "+menuRepo.findById(itemList.getMenuItemGuid()).get().getName();
 
-                    String supplement2 = TelegramBot.supplementText;
-                    supplementText = supplement2 +menuRepo.findById(itemList.getMenuItemGuid()).get().getName() +
-                            " c сиропом Карамель" +"("+ supplements.get("051e3f31-c789-4ae5-9f52-d406282549bd")+") \uD83D\uDFE2";
+                    supplementList(supplementText1,chatId,messageId);
 
-                    supplementList(supplementText,chatId,messageId);
-                    System.out.println(supplements.get("051e3f31-c789-4ae5-9f52-d406282549bd"));
+
+                    break;
+
+                case ("supplementLesnoyOreh"):
+                    if(supplements.containsKey("f9f16b54-a3b3-401c-bd61-e7c4bbe7f090")){
+                        supplementLight.allFalse();
+                        supplements.remove("f9f16b54-a3b3-401c-bd61-e7c4bbe7f090");
+
+                    }
+                    else {
+                        supplementLight.allFalse();
+                        supplements.clear();
+                        supplements.put("f9f16b54-a3b3-401c-bd61-e7c4bbe7f090", 1);
+                        supplementLight.setSupplementCaramel(true);
+
+                    }
+                    String supplementText2 = "Выберите добавки для "+menuRepo.findById(itemList.getMenuItemGuid()).get().getName();
+
+                    supplementList(supplementText2,chatId,messageId);
+
 
                     break;
 
