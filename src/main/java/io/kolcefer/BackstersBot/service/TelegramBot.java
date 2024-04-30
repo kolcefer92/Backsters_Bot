@@ -286,7 +286,7 @@ public class TelegramBot extends TelegramLongPollingBot {
 //                    items.add(itemList);
 //                    order.setItemList(items);
 
-                    String textsmallValues = "Выберите сироп";
+                    String textsmallValues = "Выберите сироп для "+menuRepo.findById(itemList.getMenuItemGuid()).get().getName();
                     supplementList(textsmallValues,chatId,messageId);
 
                     break;
@@ -294,10 +294,12 @@ public class TelegramBot extends TelegramLongPollingBot {
                 case ("mediumValues"):
 
 
-                    String textmediumValues = "Выберите сироп";
+
 
                     itemList.setMenuTypeGuid(menuRepo.findById(itemList.getMenuItemGuid()).get().getGuid_350());
                     itemList.setPriceWithDiscount((double)menuRepo.findById(itemList.getMenuItemGuid()).get().getPrice_350());
+
+                    String textmediumValues = "Выберите сироп для "+menuRepo.findById(itemList.getMenuItemGuid()).get().getName();
 
 
                     supplementList(textmediumValues,chatId,messageId);
@@ -306,11 +308,11 @@ public class TelegramBot extends TelegramLongPollingBot {
 
                 case ("largelValues"):
 
-                    String textlargelValues = "Выберите сироп";
+
 
                     itemList.setMenuTypeGuid(menuRepo.findById(itemList.getMenuItemGuid()).get().getGuid_450());
                     itemList.setPriceWithDiscount((double)menuRepo.findById(itemList.getMenuItemGuid()).get().getPrice_450());
-
+                    String textlargelValues  = "Выберите сироп для "+menuRepo.findById(itemList.getMenuItemGuid()).get().getName();
                     supplementList(textlargelValues,chatId,messageId);
 
                     break;
@@ -380,7 +382,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                         supplementLight.allFalse();
                         supplements.clear();
                         supplements.put("f9f16b54-a3b3-401c-bd61-e7c4bbe7f090", 1);
-                        supplementLight.setSupplementCaramel(true);
+                        supplementLight.setSupplementLesnoyOreh(true);
 
                     }
                     String supplementText2 = "Выберите добавки для "+menuRepo.findById(itemList.getMenuItemGuid()).get().getName();
@@ -400,7 +402,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                         supplementLight.allFalse();
                         supplements.clear();
                         supplements.put("a030d6cf-41d4-4b78-85ca-cc17d9327d66", 1);
-                        supplementLight.setSupplementCaramel(true);
+                        supplementLight.setSupplementKokos(true);
 
                     }
                     String supplementText3 = "Выберите добавки для "+menuRepo.findById(itemList.getMenuItemGuid()).get().getName();
@@ -420,7 +422,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                         supplementLight.allFalse();
                         supplements.clear();
                         supplements.put("4bfc298c-3bcc-4f34-9b97-5364d051c000", 1);
-                        supplementLight.setSupplementCaramel(true);
+                        supplementLight.setSupplementBanan(true);
 
                     }
                     String supplementText4 = "Выберите добавки для "+menuRepo.findById(itemList.getMenuItemGuid()).get().getName();
@@ -441,7 +443,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                         supplementLight.allFalse();
                         supplements.clear();
                         supplements.put("e2a6237e-6c7f-4306-9f41-fbdcf5ebe0ea", 1);
-                        supplementLight.setSupplementCaramel(true);
+                        supplementLight.setSupplementShokCoocies(true);
 
                     }
                     String supplementText5 = "Выберите добавки для "+menuRepo.findById(itemList.getMenuItemGuid()).get().getName();
@@ -461,7 +463,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                         supplementLight.allFalse();
                         supplements.clear();
                         supplements.put("d33f05a1-1dbe-4e1e-874b-1bcf5d42b851", 1);
-                        supplementLight.setSupplementCaramel(true);
+                        supplementLight.setSupplementMindal(true);
 
                     }
                     String supplementText6 = "Выберите добавки для "+menuRepo.findById(itemList.getMenuItemGuid()).get().getName();
@@ -481,7 +483,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                         supplementLight.allFalse();
                         supplements.clear();
                         supplements.put("1aa3d91c-84cc-4b24-ba08-773f7ee0ea22", 1);
-                        supplementLight.setSupplementCaramel(true);
+                        supplementLight.setSupplementSaltedCaramel(true);
 
                     }
                     String supplementText7 = "Выберите добавки для "+menuRepo.findById(itemList.getMenuItemGuid()).get().getName();
@@ -501,7 +503,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                         supplementLight.allFalse();
                         supplements.clear();
                         supplements.put("64f5aa42-1fd7-45f4-ab3c-2bbaf56bbe41", 1);
-                        supplementLight.setSupplementCaramel(true);
+                        supplementLight.setSupplementejevika(true);
 
                     }
                     String supplementText8 = "Выберите добавки для "+menuRepo.findById(itemList.getMenuItemGuid()).get().getName();
@@ -521,7 +523,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                         supplementLight.allFalse();
                         supplements.clear();
                         supplements.put("e40ec0d7-dc1d-441c-8fda-9dff8f6b9c87", 1);
-                        supplementLight.setSupplementCaramel(true);
+                        supplementLight.setSupplementamaretto(true);
 
                     }
                     String supplementText9 = "Выберите добавки для "+menuRepo.findById(itemList.getMenuItemGuid()).get().getName();
@@ -757,49 +759,79 @@ public class TelegramBot extends TelegramLongPollingBot {
         }
         else
              settext1 = "Карамель";
-
         supplementCaramel.setText(settext1);
         supplementCaramel.setCallbackData("supplementCaramel");
         rowInline1.add(supplementCaramel);
-        rowsInline.add(rowInline1);
+        //rowsInline.add(rowInline1);
 
         var supplementVanil = new InlineKeyboardButton();
-        String settext2 = "Ваниль";
+        String settext2;
+        if(supplementLight.isSupplementVanila()) {
+            settext2 = "Ваниль\uD83D\uDFE2";
+        }
+        else
+            settext2 = "Ваниль";
         supplementVanil.setText(settext2);
-        supplementVanil.setCallbackData("supplementVanil");
-        rowInline2.add(supplementVanil);
-        rowsInline.add(rowInline2);
+        supplementVanil.setCallbackData("supplementVanila");
+        rowInline1.add(supplementVanil);
+        rowsInline.add(rowInline1);
 
         var supplementLesnoyOreh = new InlineKeyboardButton();
-        String settext3 = "Лесной орех";
+        String settext3 ;
+        if(supplementLight.isSupplementLesnoyOreh()) {
+            settext3 = "Лесной орех\uD83D\uDFE2";
+        }
+        else
+            settext3 = "Лесной орех";
         supplementLesnoyOreh.setText(settext3);
         supplementLesnoyOreh.setCallbackData("supplementLesnoyOreh");
         rowInline3.add(supplementLesnoyOreh);
-        rowsInline.add(rowInline3);
+        //rowsInline.add(rowInline3);
 
         var supplementKokos = new InlineKeyboardButton();
-        String settext4 = "Кокос";
+
+        String settext4;
+        if(supplementLight.isSupplementKokos()) {
+            settext4 = "Кокос\uD83D\uDFE2";
+        }
+        else
+            settext4 = "Кокос";
         supplementKokos.setText(settext4);
         supplementKokos.setCallbackData("supplementKokos");
-        rowInline4.add(supplementKokos);
-        rowsInline.add(rowInline4);
+        rowInline3.add(supplementKokos);
+        rowsInline.add(rowInline3);
 
         var supplementBanan = new InlineKeyboardButton();
-        String settext5 = "Банан";
+        String settext5;
+        if(supplementLight.isSupplementBanan()) {
+            settext5 = "Банан\uD83D\uDFE2";
+        }
+        else
+            settext5 = "Банан";
         supplementBanan.setText(settext5);
         supplementBanan.setCallbackData("supplementBanan");
-        rowInline5.add(supplementBanan);
-        rowsInline.add(rowInline5);
+        rowInline6.add(supplementBanan);
+       // rowsInline.add(rowInline5);
 
         var supplementShokCoocies = new InlineKeyboardButton();
-        String settext6 = "Шоколадное печенье";
+        String settext6;
+        if(supplementLight.isSupplementShokCoocies()) {
+            settext6 = "Шоколадное печенье\uD83D\uDFE2";
+        }
+        else
+            settext6 = "Шоколадное печенье";
         supplementShokCoocies.setText(settext6);
         supplementShokCoocies.setCallbackData("supplementShokCoocies");
         rowInline6.add(supplementShokCoocies);
         rowsInline.add(rowInline6);
 
         var supplementMindal = new InlineKeyboardButton();
-        String settext7 = "Миндаль";
+        String settext7;
+        if(supplementLight.isSupplementMindal()) {
+            settext7 = "Миндаль\uD83D\uDFE2";
+        }
+        else
+            settext7 = "Миндаль";
         supplementMindal.setText(settext7);
         supplementMindal.setCallbackData("supplementMindal");
         rowInline7.add(supplementMindal);
@@ -807,7 +839,12 @@ public class TelegramBot extends TelegramLongPollingBot {
 
 
         var supplementSaltedCaramel = new InlineKeyboardButton();
-        String settext8 = "Сол. Карамель";
+        String settext8 ;
+        if(supplementLight.isSupplementSaltedCaramel()) {
+            settext8 = "Сол. Карамель\uD83D\uDFE2";
+        }
+        else
+            settext8 = "Сол. Карамель";
         supplementSaltedCaramel.setText(settext8);
         supplementSaltedCaramel.setCallbackData("supplementSaltedCaramel");
         rowInline7.add(supplementSaltedCaramel);
@@ -815,7 +852,12 @@ public class TelegramBot extends TelegramLongPollingBot {
 
 
         var supplementejevika = new InlineKeyboardButton();
-        String settext9 = "Ежевика";
+        String settext9;
+        if(supplementLight.isSupplementejevika()) {
+            settext9 = "Ежевика\uD83D\uDFE2";
+        }
+        else
+            settext9 = "Ежевика";
         supplementejevika.setText(settext9);
         supplementejevika.setCallbackData("supplementejevika");
         rowInline8.add(supplementejevika);
@@ -823,7 +865,12 @@ public class TelegramBot extends TelegramLongPollingBot {
 
 
         var supplementamaretto = new InlineKeyboardButton();
-        String settext10 = "Амаретто";
+        String settext10;
+        if(supplementLight.isSupplementamaretto()) {
+            settext10 = "Амаретто\uD83D\uDFE2";
+        }
+        else
+            settext10 = "Амаретто";
         supplementamaretto.setText(settext10);
         supplementamaretto.setCallbackData("supplementamaretto");
         rowInline8.add(supplementamaretto);

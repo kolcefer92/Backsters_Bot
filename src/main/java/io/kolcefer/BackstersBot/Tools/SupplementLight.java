@@ -12,11 +12,25 @@ public class SupplementLight {
     boolean supplementCaramel = false;
     boolean supplementVanila = false;
     boolean supplementLesnoyOreh =false;
+    boolean supplementKokos = false;
+    boolean supplementBanan = false;
+    boolean supplementShokCoocies = false;
+    boolean supplementMindal = false;
+    boolean supplementSaltedCaramel = false;
+    boolean supplementejevika = false;
+    boolean supplementamaretto = false;
 
     public void allFalse(){
         this.supplementCaramel = false;
         this.supplementVanila = false;
         this.supplementLesnoyOreh =false;
+        this.supplementKokos = false;
+        this.supplementBanan = false;
+        this.supplementShokCoocies = false;
+        this.supplementMindal = false;
+        this.supplementSaltedCaramel = false;
+        this.supplementejevika = false;
+        this.supplementamaretto = false;
     }
 
 
