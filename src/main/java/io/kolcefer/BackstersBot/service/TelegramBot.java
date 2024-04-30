@@ -390,6 +390,146 @@ public class TelegramBot extends TelegramLongPollingBot {
 
                     break;
 
+                case ("supplementKokos"):
+                    if(supplements.containsKey("a030d6cf-41d4-4b78-85ca-cc17d9327d66")){
+                        supplementLight.allFalse();
+                        supplements.remove("a030d6cf-41d4-4b78-85ca-cc17d9327d66");
+
+                    }
+                    else {
+                        supplementLight.allFalse();
+                        supplements.clear();
+                        supplements.put("a030d6cf-41d4-4b78-85ca-cc17d9327d66", 1);
+                        supplementLight.setSupplementCaramel(true);
+
+                    }
+                    String supplementText3 = "Выберите добавки для "+menuRepo.findById(itemList.getMenuItemGuid()).get().getName();
+
+                    supplementList(supplementText3,chatId,messageId);
+
+
+                    break;
+
+                case ("supplementBanan"):
+                    if(supplements.containsKey("4bfc298c-3bcc-4f34-9b97-5364d051c000")){
+                        supplementLight.allFalse();
+                        supplements.remove("4bfc298c-3bcc-4f34-9b97-5364d051c000");
+
+                    }
+                    else {
+                        supplementLight.allFalse();
+                        supplements.clear();
+                        supplements.put("4bfc298c-3bcc-4f34-9b97-5364d051c000", 1);
+                        supplementLight.setSupplementCaramel(true);
+
+                    }
+                    String supplementText4 = "Выберите добавки для "+menuRepo.findById(itemList.getMenuItemGuid()).get().getName();
+
+                    supplementList(supplementText4,chatId,messageId);
+
+
+                    break;
+
+
+                case ("supplementShokCoocies"):
+                    if(supplements.containsKey("e2a6237e-6c7f-4306-9f41-fbdcf5ebe0ea")){
+                        supplementLight.allFalse();
+                        supplements.remove("e2a6237e-6c7f-4306-9f41-fbdcf5ebe0ea");
+
+                    }
+                    else {
+                        supplementLight.allFalse();
+                        supplements.clear();
+                        supplements.put("e2a6237e-6c7f-4306-9f41-fbdcf5ebe0ea", 1);
+                        supplementLight.setSupplementCaramel(true);
+
+                    }
+                    String supplementText5 = "Выберите добавки для "+menuRepo.findById(itemList.getMenuItemGuid()).get().getName();
+
+                    supplementList(supplementText5,chatId,messageId);
+
+
+                    break;
+
+                case ("supplementMindal"):
+                    if(supplements.containsKey("d33f05a1-1dbe-4e1e-874b-1bcf5d42b851")){
+                        supplementLight.allFalse();
+                        supplements.remove("d33f05a1-1dbe-4e1e-874b-1bcf5d42b851");
+
+                    }
+                    else {
+                        supplementLight.allFalse();
+                        supplements.clear();
+                        supplements.put("d33f05a1-1dbe-4e1e-874b-1bcf5d42b851", 1);
+                        supplementLight.setSupplementCaramel(true);
+
+                    }
+                    String supplementText6 = "Выберите добавки для "+menuRepo.findById(itemList.getMenuItemGuid()).get().getName();
+
+                    supplementList(supplementText6,chatId,messageId);
+
+
+                    break;
+
+                case ("supplementSaltedCaramel"):
+                    if(supplements.containsKey("1aa3d91c-84cc-4b24-ba08-773f7ee0ea22")){
+                        supplementLight.allFalse();
+                        supplements.remove("1aa3d91c-84cc-4b24-ba08-773f7ee0ea22");
+
+                    }
+                    else {
+                        supplementLight.allFalse();
+                        supplements.clear();
+                        supplements.put("1aa3d91c-84cc-4b24-ba08-773f7ee0ea22", 1);
+                        supplementLight.setSupplementCaramel(true);
+
+                    }
+                    String supplementText7 = "Выберите добавки для "+menuRepo.findById(itemList.getMenuItemGuid()).get().getName();
+
+                    supplementList(supplementText7,chatId,messageId);
+
+
+                    break;
+
+                case ("supplementejevika"):
+                    if(supplements.containsKey("64f5aa42-1fd7-45f4-ab3c-2bbaf56bbe41")){
+                        supplementLight.allFalse();
+                        supplements.remove("64f5aa42-1fd7-45f4-ab3c-2bbaf56bbe41");
+
+                    }
+                    else {
+                        supplementLight.allFalse();
+                        supplements.clear();
+                        supplements.put("64f5aa42-1fd7-45f4-ab3c-2bbaf56bbe41", 1);
+                        supplementLight.setSupplementCaramel(true);
+
+                    }
+                    String supplementText8 = "Выберите добавки для "+menuRepo.findById(itemList.getMenuItemGuid()).get().getName();
+
+                    supplementList(supplementText8,chatId,messageId);
+
+
+                    break;
+
+                case ("supplementamaretto"):
+                    if(supplements.containsKey("e40ec0d7-dc1d-441c-8fda-9dff8f6b9c87")){
+                        supplementLight.allFalse();
+                        supplements.remove("e40ec0d7-dc1d-441c-8fda-9dff8f6b9c87");
+
+                    }
+                    else {
+                        supplementLight.allFalse();
+                        supplements.clear();
+                        supplements.put("e40ec0d7-dc1d-441c-8fda-9dff8f6b9c87", 1);
+                        supplementLight.setSupplementCaramel(true);
+
+                    }
+                    String supplementText9 = "Выберите добавки для "+menuRepo.findById(itemList.getMenuItemGuid()).get().getName();
+
+                    supplementList(supplementText9,chatId,messageId);
+
+
+                    break;
 
 
 
@@ -645,7 +785,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         rowsInline.add(rowInline4);
 
         var supplementBanan = new InlineKeyboardButton();
-        String settext5 = "Банан Уайт";
+        String settext5 = "Банан";
         supplementBanan.setText(settext5);
         supplementBanan.setCallbackData("supplementBanan");
         rowInline5.add(supplementBanan);
@@ -663,14 +803,30 @@ public class TelegramBot extends TelegramLongPollingBot {
         supplementMindal.setText(settext7);
         supplementMindal.setCallbackData("supplementMindal");
         rowInline7.add(supplementMindal);
-        rowsInline.add(rowInline7);
+        //rowsInline.add(rowInline7);
 
 
         var supplementSaltedCaramel = new InlineKeyboardButton();
         String settext8 = "Сол. Карамель";
         supplementSaltedCaramel.setText(settext8);
         supplementSaltedCaramel.setCallbackData("supplementSaltedCaramel");
-        rowInline8.add(supplementSaltedCaramel);
+        rowInline7.add(supplementSaltedCaramel);
+        rowsInline.add(rowInline7);
+
+
+        var supplementejevika = new InlineKeyboardButton();
+        String settext9 = "Ежевика";
+        supplementejevika.setText(settext9);
+        supplementejevika.setCallbackData("supplementejevika");
+        rowInline8.add(supplementejevika);
+       // rowsInline.add(rowInline8);
+
+
+        var supplementamaretto = new InlineKeyboardButton();
+        String settext10 = "Амаретто";
+        supplementamaretto.setText(settext10);
+        supplementamaretto.setCallbackData("supplementamaretto");
+        rowInline8.add(supplementamaretto);
         rowsInline.add(rowInline8);
 
 
