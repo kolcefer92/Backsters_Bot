@@ -80,6 +80,8 @@ public class TelegramBot extends TelegramLongPollingBot {
 
     public  Map<Long, Integer> userStates = new HashMap<>();
     public  Map<String, Integer> supplements = new HashMap<>();
+    public  Map<String, Integer> altMilkAndSugar = new HashMap<>();
+    public int costSupplements = 0;
     List<ItemList> items = new ArrayList<>();
     public static String supplementText = "Ваш заказ - ";
 
@@ -279,6 +281,7 @@ public class TelegramBot extends TelegramLongPollingBot {
 
                     itemList.setMenuTypeGuid(menuRepo.findById(itemList.getMenuItemGuid()).get().getGuid_250());
                     itemList.setPriceWithDiscount((double)menuRepo.findById(itemList.getMenuItemGuid()).get().getPrice_250());
+                    order.setComment("250мл");
 
 
 //                    // itemList.setQuantity(1);
@@ -298,7 +301,7 @@ public class TelegramBot extends TelegramLongPollingBot {
 
                     itemList.setMenuTypeGuid(menuRepo.findById(itemList.getMenuItemGuid()).get().getGuid_350());
                     itemList.setPriceWithDiscount((double)menuRepo.findById(itemList.getMenuItemGuid()).get().getPrice_350());
-
+                    order.setComment("350мл");
                     String textmediumValues = "Выберите сироп для "+menuRepo.findById(itemList.getMenuItemGuid()).get().getName();
 
 
@@ -312,6 +315,7 @@ public class TelegramBot extends TelegramLongPollingBot {
 
                     itemList.setMenuTypeGuid(menuRepo.findById(itemList.getMenuItemGuid()).get().getGuid_450());
                     itemList.setPriceWithDiscount((double)menuRepo.findById(itemList.getMenuItemGuid()).get().getPrice_450());
+                    order.setComment("450мл");
                     String textlargelValues  = "Выберите сироп для "+menuRepo.findById(itemList.getMenuItemGuid()).get().getName();
                     supplementList(textlargelValues,chatId,messageId);
 
@@ -327,13 +331,15 @@ public class TelegramBot extends TelegramLongPollingBot {
                         //int i = supplements.get("051e3f31-c789-4ae5-9f52-d406282549bd") + 1;
                         supplementLight.allFalse();
                         supplements.remove("051e3f31-c789-4ae5-9f52-d406282549bd");
+                    //    itemList.setPriceWithDiscount(itemList.getPriceWithDiscount()-30);
                        // supplements.put("051e3f31-c789-4ae5-9f52-d406282549bd",i);
 
                     }
                     else {
                         supplementLight.allFalse();
                         supplements.clear();
-                        supplements.put("051e3f31-c789-4ae5-9f52-d406282549bd", 1);
+                        supplements.put("051e3f31-c789-4ae5-9f52-d406282549bd", 30);
+                      //  itemList.setPriceWithDiscount(itemList.getPriceWithDiscount()+30);
                         supplementLight.setSupplementCaramel(true);
 
 
@@ -356,12 +362,14 @@ public class TelegramBot extends TelegramLongPollingBot {
                     if(supplements.containsKey("ebfd782f-bbe7-4a4b-9926-3fc5dc8c574b")){
                         supplementLight.allFalse();
                         supplements.remove("ebfd782f-bbe7-4a4b-9926-3fc5dc8c574b");
+                        //itemList.setPriceWithDiscount(itemList.getPriceWithDiscount()-30);
 
                     }
                     else {
                         supplementLight.allFalse();
                         supplements.clear();
-                        supplements.put("ebfd782f-bbe7-4a4b-9926-3fc5dc8c574b", 1);
+                        supplements.put("ebfd782f-bbe7-4a4b-9926-3fc5dc8c574b", 30);
+                       // itemList.setPriceWithDiscount(itemList.getPriceWithDiscount()+30);
                         supplementLight.setSupplementVanila(true);
 
                     }
@@ -376,12 +384,14 @@ public class TelegramBot extends TelegramLongPollingBot {
                     if(supplements.containsKey("f9f16b54-a3b3-401c-bd61-e7c4bbe7f090")){
                         supplementLight.allFalse();
                         supplements.remove("f9f16b54-a3b3-401c-bd61-e7c4bbe7f090");
+                        //itemList.setPriceWithDiscount(itemList.getPriceWithDiscount()-30);
 
                     }
                     else {
                         supplementLight.allFalse();
                         supplements.clear();
-                        supplements.put("f9f16b54-a3b3-401c-bd61-e7c4bbe7f090", 1);
+                        supplements.put("f9f16b54-a3b3-401c-bd61-e7c4bbe7f090", 30);
+                       // itemList.setPriceWithDiscount(itemList.getPriceWithDiscount()+30);
                         supplementLight.setSupplementLesnoyOreh(true);
 
                     }
@@ -395,13 +405,15 @@ public class TelegramBot extends TelegramLongPollingBot {
                 case ("supplementKokos"):
                     if(supplements.containsKey("a030d6cf-41d4-4b78-85ca-cc17d9327d66")){
                         supplementLight.allFalse();
+                        //itemList.setPriceWithDiscount(itemList.getPriceWithDiscount()-30);
                         supplements.remove("a030d6cf-41d4-4b78-85ca-cc17d9327d66");
 
                     }
                     else {
                         supplementLight.allFalse();
                         supplements.clear();
-                        supplements.put("a030d6cf-41d4-4b78-85ca-cc17d9327d66", 1);
+                        supplements.put("a030d6cf-41d4-4b78-85ca-cc17d9327d66", 30);
+                      //  itemList.setPriceWithDiscount(itemList.getPriceWithDiscount()+30);
                         supplementLight.setSupplementKokos(true);
 
                     }
@@ -414,6 +426,7 @@ public class TelegramBot extends TelegramLongPollingBot {
 
                 case ("supplementBanan"):
                     if(supplements.containsKey("4bfc298c-3bcc-4f34-9b97-5364d051c000")){
+                      // itemList.setPriceWithDiscount(itemList.getPriceWithDiscount()-30);
                         supplementLight.allFalse();
                         supplements.remove("4bfc298c-3bcc-4f34-9b97-5364d051c000");
 
@@ -421,7 +434,8 @@ public class TelegramBot extends TelegramLongPollingBot {
                     else {
                         supplementLight.allFalse();
                         supplements.clear();
-                        supplements.put("4bfc298c-3bcc-4f34-9b97-5364d051c000", 1);
+                        supplements.put("4bfc298c-3bcc-4f34-9b97-5364d051c000", 30);
+                       // itemList.setPriceWithDiscount(itemList.getPriceWithDiscount()+30);
                         supplementLight.setSupplementBanan(true);
 
                     }
@@ -436,13 +450,15 @@ public class TelegramBot extends TelegramLongPollingBot {
                 case ("supplementShokCoocies"):
                     if(supplements.containsKey("e2a6237e-6c7f-4306-9f41-fbdcf5ebe0ea")){
                         supplementLight.allFalse();
+                        //itemList.setPriceWithDiscount(itemList.getPriceWithDiscount()-30);
                         supplements.remove("e2a6237e-6c7f-4306-9f41-fbdcf5ebe0ea");
 
                     }
                     else {
                         supplementLight.allFalse();
                         supplements.clear();
-                        supplements.put("e2a6237e-6c7f-4306-9f41-fbdcf5ebe0ea", 1);
+                        supplements.put("e2a6237e-6c7f-4306-9f41-fbdcf5ebe0ea", 30);
+                       // itemList.setPriceWithDiscount(itemList.getPriceWithDiscount()+30);
                         supplementLight.setSupplementShokCoocies(true);
 
                     }
@@ -456,13 +472,15 @@ public class TelegramBot extends TelegramLongPollingBot {
                 case ("supplementMindal"):
                     if(supplements.containsKey("d33f05a1-1dbe-4e1e-874b-1bcf5d42b851")){
                         supplementLight.allFalse();
+                       // itemList.setPriceWithDiscount(itemList.getPriceWithDiscount()-30);
                         supplements.remove("d33f05a1-1dbe-4e1e-874b-1bcf5d42b851");
 
                     }
                     else {
                         supplementLight.allFalse();
                         supplements.clear();
-                        supplements.put("d33f05a1-1dbe-4e1e-874b-1bcf5d42b851", 1);
+                        supplements.put("d33f05a1-1dbe-4e1e-874b-1bcf5d42b851", 30);
+                       // itemList.setPriceWithDiscount(itemList.getPriceWithDiscount()+30);
                         supplementLight.setSupplementMindal(true);
 
                     }
@@ -476,13 +494,15 @@ public class TelegramBot extends TelegramLongPollingBot {
                 case ("supplementSaltedCaramel"):
                     if(supplements.containsKey("1aa3d91c-84cc-4b24-ba08-773f7ee0ea22")){
                         supplementLight.allFalse();
+                        //itemList.setPriceWithDiscount(itemList.getPriceWithDiscount()-30);
                         supplements.remove("1aa3d91c-84cc-4b24-ba08-773f7ee0ea22");
 
                     }
                     else {
                         supplementLight.allFalse();
                         supplements.clear();
-                        supplements.put("1aa3d91c-84cc-4b24-ba08-773f7ee0ea22", 1);
+                        supplements.put("1aa3d91c-84cc-4b24-ba08-773f7ee0ea22", 30);
+                        //itemList.setPriceWithDiscount(itemList.getPriceWithDiscount()+30);
                         supplementLight.setSupplementSaltedCaramel(true);
 
                     }
@@ -496,13 +516,15 @@ public class TelegramBot extends TelegramLongPollingBot {
                 case ("supplementejevika"):
                     if(supplements.containsKey("64f5aa42-1fd7-45f4-ab3c-2bbaf56bbe41")){
                         supplementLight.allFalse();
+                       // itemList.setPriceWithDiscount(itemList.getPriceWithDiscount()-30);
                         supplements.remove("64f5aa42-1fd7-45f4-ab3c-2bbaf56bbe41");
 
                     }
                     else {
                         supplementLight.allFalse();
                         supplements.clear();
-                        supplements.put("64f5aa42-1fd7-45f4-ab3c-2bbaf56bbe41", 1);
+                        supplements.put("64f5aa42-1fd7-45f4-ab3c-2bbaf56bbe41", 30);
+                       // itemList.setPriceWithDiscount(itemList.getPriceWithDiscount()+30);
                         supplementLight.setSupplementejevika(true);
 
                     }
@@ -516,13 +538,15 @@ public class TelegramBot extends TelegramLongPollingBot {
                 case ("supplementamaretto"):
                     if(supplements.containsKey("e40ec0d7-dc1d-441c-8fda-9dff8f6b9c87")){
                         supplementLight.allFalse();
+                        //itemList.setPriceWithDiscount(itemList.getPriceWithDiscount()-30);
                         supplements.remove("e40ec0d7-dc1d-441c-8fda-9dff8f6b9c87");
 
                     }
                     else {
                         supplementLight.allFalse();
                         supplements.clear();
-                        supplements.put("e40ec0d7-dc1d-441c-8fda-9dff8f6b9c87", 1);
+                        supplements.put("e40ec0d7-dc1d-441c-8fda-9dff8f6b9c87", 30);
+                        //itemList.setPriceWithDiscount(itemList.getPriceWithDiscount()+30);
                         supplementLight.setSupplementamaretto(true);
 
                     }
@@ -530,6 +554,155 @@ public class TelegramBot extends TelegramLongPollingBot {
 
                     supplementList(supplementText9,chatId,messageId);
 
+
+                    break;
+
+
+
+                case ("supplementCoconutMilk"):
+                    if(altMilkAndSugar.containsKey("059013f4-04ab-4008-9858-cfe3792d23e1")){
+                        supplementLight.setSupplementcoconuMilk(false);
+                       // itemList.setPriceWithDiscount(itemList.getPriceWithDiscount()-90);
+                        altMilkAndSugar.remove("059013f4-04ab-4008-9858-cfe3792d23e1");
+
+                    }
+                    else {
+                        supplementLight.milkAllFalse();
+                        if(altMilkAndSugar.containsKey("1a7a6f45-96ca-4a2a-a545-3e543e477593")) {
+                            altMilkAndSugar.remove("1a7a6f45-96ca-4a2a-a545-3e543e477593");
+                            altMilkAndSugar.put("059013f4-04ab-4008-9858-cfe3792d23e1", 90);
+                            // itemList.setPriceWithDiscount(itemList.getPriceWithDiscount()+90);
+                            supplementLight.setSupplementcoconuMilk(true);
+                        }else {
+
+                            altMilkAndSugar.put("059013f4-04ab-4008-9858-cfe3792d23e1", 90);
+                            // itemList.setPriceWithDiscount(itemList.getPriceWithDiscount()+90);
+                            supplementLight.setSupplementcoconuMilk(true);
+                        }
+
+                    }
+                    String supplementText10 = "Выберите добавки для "+menuRepo.findById(itemList.getMenuItemGuid()).get().getName();
+
+                    supplementList(supplementText10,chatId,messageId);
+
+
+                    break;
+
+
+                case ("supplementHazelnutMilk"):
+                    if(altMilkAndSugar.containsKey("1a7a6f45-96ca-4a2a-a545-3e543e477593")){
+                        supplementLight.setSupplementhazelnutMilk(false);
+                        //itemList.setPriceWithDiscount(itemList.getPriceWithDiscount()-90);
+                        altMilkAndSugar.remove("1a7a6f45-96ca-4a2a-a545-3e543e477593");
+
+                    }
+                    else {
+                        supplementLight.milkAllFalse();
+                        if(altMilkAndSugar.containsKey("059013f4-04ab-4008-9858-cfe3792d23e1")) {
+                            altMilkAndSugar.remove("059013f4-04ab-4008-9858-cfe3792d23e1");
+                            altMilkAndSugar.put("1a7a6f45-96ca-4a2a-a545-3e543e477593", 90);
+                            //itemList.setPriceWithDiscount(itemList.getPriceWithDiscount()+90);
+                            supplementLight.setSupplementhazelnutMilk(true);
+                        }else {
+                            altMilkAndSugar.put("1a7a6f45-96ca-4a2a-a545-3e543e477593", 90);
+                            //itemList.setPriceWithDiscount(itemList.getPriceWithDiscount()+90);
+                            supplementLight.setSupplementhazelnutMilk(true);
+                        }
+
+                    }
+                    String supplementText11 = "Выберите добавки для "+menuRepo.findById(itemList.getMenuItemGuid()).get().getName();
+
+                    supplementList(supplementText11,chatId,messageId);
+
+
+                    break;
+
+
+                case ("supplementShugar"):
+                    if(altMilkAndSugar.containsKey("45c3df30-e87c-4124-a52c-0ba27e97b596")){
+                        supplementLight.setSupplementSugar(false);
+                        //itemList.setPriceWithDiscount(itemList.getPriceWithDiscount()-90);
+                        altMilkAndSugar.remove("45c3df30-e87c-4124-a52c-0ba27e97b596");
+
+                    }
+                    else {
+                        altMilkAndSugar.put("45c3df30-e87c-4124-a52c-0ba27e97b596", 0);
+                      //  itemList.setPriceWithDiscount(itemList.getPriceWithDiscount()+90);
+                        supplementLight.setSupplementSugar(true);
+
+                    }
+                    String supplementText12 = "Выберите добавки для "+menuRepo.findById(itemList.getMenuItemGuid()).get().getName();
+
+                    supplementList(supplementText12,chatId,messageId);
+
+
+                    break;
+
+                case ("supplementKorica"):
+                    if(altMilkAndSugar.containsKey("08686be7-eaa4-491a-a25e-0df546565cb9")){
+                        supplementLight.setSupplementCinamon(false);
+                        //itemList.setPriceWithDiscount(itemList.getPriceWithDiscount()-90);
+                        altMilkAndSugar.remove("08686be7-eaa4-491a-a25e-0df546565cb9");
+
+                    }
+                    else {
+                        altMilkAndSugar.put("08686be7-eaa4-491a-a25e-0df546565cb9", 0);
+                        //  itemList.setPriceWithDiscount(itemList.getPriceWithDiscount()+90);
+                        supplementLight.setSupplementCinamon(true);
+
+                    }
+                    String supplementText13 = "Выберите добавки для "+menuRepo.findById(itemList.getMenuItemGuid()).get().getName();
+
+                    supplementList(supplementText13,chatId,messageId);
+
+
+                    break;
+
+
+
+
+
+
+
+                case ("dalee"):
+//                    if(!supplements.isEmpty()){
+//                        itemList.setPriceWithDiscount(itemList.getPriceWithDiscount()+30);
+//                        System.out.println(supplements);
+//                        System.out.println(itemList.getPriceWithDiscount());
+//                    }
+
+
+                    for (Map.Entry<String,Integer> map1 : supplements.entrySet()){
+                        costSupplements = costSupplements + map1.getValue();
+
+                    }
+                    for (Map.Entry<String,Integer> map2 : altMilkAndSugar.entrySet()){
+                        costSupplements = costSupplements + map2.getValue();
+
+                    }
+                    //itemList.setPriceWithDiscount(itemList.getPriceWithDiscount()+costSupplements);
+                    //double j = itemList.getPriceWithDiscount();
+
+
+
+
+
+
+                    countCup(chatId,messageId,costSupplements);
+
+
+                    break;
+
+
+                case ("back_supplements"):
+                    String supplementText14 = "Выберите добавки для "+menuRepo.findById(itemList.getMenuItemGuid()).get().getName();
+                   supplementLight.allFalse();
+                   supplements.clear();
+                   altMilkAndSugar.clear();
+                   supplementLight.altAllFalse();
+                   costSupplements = 0;
+
+                    supplementList(supplementText14,chatId,messageId);
 
                     break;
 
@@ -749,6 +922,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         List<InlineKeyboardButton> rowInline6 = new ArrayList<>();
         List<InlineKeyboardButton> rowInline7 = new ArrayList<>();
         List<InlineKeyboardButton> rowInline8 = new ArrayList<>();
+        List<InlineKeyboardButton> rowInline9 = new ArrayList<>();
 
 
         var supplementCaramel = new InlineKeyboardButton();
@@ -890,7 +1064,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         //нужно сделать отдельные мапы для альтер молока и сахара с корицей, в конце смержим все мапы в одну и отправим заказ
         var supplementCoconutMilk = new InlineKeyboardButton();
         String settext12;
-        if(supplementLight.isSupplementamaretto()) {
+        if(supplementLight.isSupplementcoconuMilk()) {
             settext12 = "Кокосовое молоко 90р\uD83D\uDFE2";
         }
         else
@@ -903,7 +1077,7 @@ public class TelegramBot extends TelegramLongPollingBot {
 
         var supplementHazelnutMilk = new InlineKeyboardButton();
         String settext13;
-        if(supplementLight.isSupplementamaretto()) {
+        if(supplementLight.isSupplementhazelnutMilk()) {
             settext13 = "Фундучное молоко 90р\uD83D\uDFE2";
         }
         else
@@ -917,7 +1091,7 @@ public class TelegramBot extends TelegramLongPollingBot {
 
         var supplementShugar = new InlineKeyboardButton();
         String settext14;
-        if(supplementLight.isSupplementamaretto()) {
+        if(supplementLight.isSupplementSugar()) {
             settext14 = "Сахар\uD83D\uDFE2";
         }
         else
@@ -933,7 +1107,7 @@ public class TelegramBot extends TelegramLongPollingBot {
 
         var supplementKorica = new InlineKeyboardButton();
         String settext15;
-        if(supplementLight.isSupplementamaretto()) {
+        if(supplementLight.isSupplementCinamon()) {
             settext15 = "Корица\uD83D\uDFE2";
         }
         else
@@ -945,6 +1119,15 @@ public class TelegramBot extends TelegramLongPollingBot {
 
 
 
+
+
+
+        var dalee = new InlineKeyboardButton();
+        String settext20 = "далее";
+        dalee.setText(settext20);
+        dalee.setCallbackData("dalee");
+        rowInline9.add(dalee);
+        rowsInline.add(rowInline9);
 
 
 
@@ -960,6 +1143,72 @@ public class TelegramBot extends TelegramLongPollingBot {
             //log.error(ERROR_TEXT + e.getMessage());
         }
     }
+
+    public void countCup(long chatid, long messageId, int price){
+
+
+        EditMessageText message = new EditMessageText();
+        message.setChatId(String.valueOf(chatid));
+        message.setText("Сколько одинаковых напитков добавить в заказ?");
+        message.setMessageId((int) messageId);
+
+       // message.setChatId(String.valueOf(chatId));
+       // message.setText(text);
+
+
+        InlineKeyboardMarkup keyboardMarkup = new InlineKeyboardMarkup();
+        List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
+        List<InlineKeyboardButton> rowInline1 = new ArrayList<>();
+        List<InlineKeyboardButton> rowInline2 = new ArrayList<>();
+        List<InlineKeyboardButton> rowInline3 = new ArrayList<>();
+        List<InlineKeyboardButton> rowInline4 = new ArrayList<>();
+
+        String text1 = "Один "+ menuRepo.findById(itemList.getMenuItemGuid()).get().getName() + " "+ order.getComment() + " = " + (price+itemList.getPriceWithDiscount())+"р";
+        var ONE_CUP = new InlineKeyboardButton();
+        ONE_CUP.setText(text1);
+        ONE_CUP.setCallbackData("ONE_CUP");
+        rowInline1.add(ONE_CUP);
+
+
+        String text2 = "Два "+ menuRepo.findById(itemList.getMenuItemGuid()).get().getName() + " "+ order.getComment() + " = " + (price+itemList.getPriceWithDiscount())*2+"р";
+        var TWO_CUP = new InlineKeyboardButton();
+        TWO_CUP.setText(text2);
+        TWO_CUP.setCallbackData("TWO_CUP");
+        rowInline2.add(TWO_CUP);
+
+        String text3 = "Три "+ menuRepo.findById(itemList.getMenuItemGuid()).get().getName() + " "+ order.getComment() + " = " + (price+itemList.getPriceWithDiscount())*3+"р";
+
+        var THREE_CUP = new InlineKeyboardButton();
+        THREE_CUP.setText(text3);
+        THREE_CUP.setCallbackData("THREE_CUP");
+        rowInline3.add(THREE_CUP);
+
+        String text4 = "Назад";
+        var back_supplements = new InlineKeyboardButton();
+        back_supplements.setText(text4);
+        back_supplements.setCallbackData("back_supplements");
+        rowInline4.add(back_supplements);
+
+        rowsInline.add(rowInline1);
+        rowsInline.add(rowInline2);
+        rowsInline.add(rowInline3);
+        rowsInline.add(rowInline4);
+
+        keyboardMarkup.setKeyboard(rowsInline);
+
+        message.setReplyMarkup(keyboardMarkup);
+      //  System.out.println("done");
+
+        try {
+            execute(message);
+        } catch (TelegramApiException e) {
+            log.error("error occurred "+e.getMessage());
+
+
+        }
+
+    }
+
 
 
 
@@ -1067,7 +1316,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         KeyboardRow keyboardRow = new KeyboardRow();
 
         keyboardRow.add("/registration");
-        keyboardRow.add("/balance");
+       // keyboardRow.add("/balance");
 
         keyboardRows.add(keyboardRow);
 
@@ -1098,6 +1347,7 @@ public class TelegramBot extends TelegramLongPollingBot {
 
         keyboardRow.add("/balance");
         keyboardRow.add("/logout");
+        keyboardRow.add("/newOrder");
 
         keyboardRows.add(keyboardRow);
 

@@ -20,6 +20,11 @@ public class SupplementLight {
     boolean supplementejevika = false;
     boolean supplementamaretto = false;
 
+    boolean supplementcoconuMilk = false;
+    boolean supplementhazelnutMilk = false;
+    boolean supplementSugar = false;
+    boolean supplementCinamon = false;
+
     public void allFalse(){
         this.supplementCaramel = false;
         this.supplementVanila = false;
@@ -31,6 +36,21 @@ public class SupplementLight {
         this.supplementSaltedCaramel = false;
         this.supplementejevika = false;
         this.supplementamaretto = false;
+    }
+
+    public  void altAllFalse(){
+
+        this.supplementcoconuMilk = false;
+        this.supplementhazelnutMilk = false;
+        this.supplementSugar = false;
+        this.supplementCinamon = false;
+
+    }
+
+    public void milkAllFalse(){
+        this.supplementcoconuMilk = false;
+        this.supplementhazelnutMilk = false;
+
     }
 
 
