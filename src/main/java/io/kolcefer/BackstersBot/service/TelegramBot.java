@@ -742,7 +742,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         InlineKeyboardMarkup keyboardMarkup = new InlineKeyboardMarkup();
         List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
         List<InlineKeyboardButton> rowInline1 = new ArrayList<>();
-        List<InlineKeyboardButton> rowInline2 = new ArrayList<>();
+        List<InlineKeyboardButton> delitel = new ArrayList<>();
         List<InlineKeyboardButton> rowInline3 = new ArrayList<>();
         List<InlineKeyboardButton> rowInline4 = new ArrayList<>();
         List<InlineKeyboardButton> rowInline5 = new ArrayList<>();
@@ -875,6 +875,76 @@ public class TelegramBot extends TelegramLongPollingBot {
         supplementamaretto.setCallbackData("supplementamaretto");
         rowInline8.add(supplementamaretto);
         rowsInline.add(rowInline8);
+
+
+        var delitel1 = new InlineKeyboardButton();
+        String settext11 = "------------------";
+        delitel1.setText(settext11);
+        delitel1.setCallbackData("dsdfsdfsdf");
+        delitel.add(delitel1);
+        rowsInline.add(delitel);
+
+
+
+
+        //нужно сделать отдельные мапы для альтер молока и сахара с корицей, в конце смержим все мапы в одну и отправим заказ
+        var supplementCoconutMilk = new InlineKeyboardButton();
+        String settext12;
+        if(supplementLight.isSupplementamaretto()) {
+            settext12 = "Кокосовое молоко 90р\uD83D\uDFE2";
+        }
+        else
+            settext12 = "Кокосовое молоко 90р";
+        supplementCoconutMilk.setText(settext12);
+        supplementCoconutMilk.setCallbackData("supplementCoconutMilk");
+        rowInline4.add(supplementCoconutMilk);
+        // rowsInline.add(rowInline4);
+
+
+        var supplementHazelnutMilk = new InlineKeyboardButton();
+        String settext13;
+        if(supplementLight.isSupplementamaretto()) {
+            settext13 = "Фундучное молоко 90р\uD83D\uDFE2";
+        }
+        else
+            settext13 = "Фундучное молоко 90р";
+        supplementHazelnutMilk.setText(settext13);
+        supplementHazelnutMilk.setCallbackData("supplementHazelnutMilk");
+        rowInline4.add(supplementHazelnutMilk);
+        rowsInline.add(rowInline4);
+
+
+
+        var supplementShugar = new InlineKeyboardButton();
+        String settext14;
+        if(supplementLight.isSupplementamaretto()) {
+            settext14 = "Сахар\uD83D\uDFE2";
+        }
+        else
+            settext14 = "Сахар";
+        supplementShugar.setText(settext14);
+        supplementShugar.setCallbackData("supplementShugar");
+        rowInline5.add(supplementShugar);
+        //rowsInline.add(rowInline4);
+
+        //sdsdsdstestgit
+
+
+
+        var supplementKorica = new InlineKeyboardButton();
+        String settext15;
+        if(supplementLight.isSupplementamaretto()) {
+            settext15 = "Корица\uD83D\uDFE2";
+        }
+        else
+            settext15 = "корица";
+        supplementKorica.setText(settext15);
+        supplementKorica.setCallbackData("supplementKorica");
+        rowInline5.add(supplementKorica);
+        rowsInline.add(rowInline5);
+
+
+
 
 
 
