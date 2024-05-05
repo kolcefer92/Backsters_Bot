@@ -19,9 +19,13 @@ import org.springframework.core.SpringVersion;
 import org.springframework.expression.spel.ast.NullLiteral;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
+import org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageText;
 import org.telegram.telegrambots.meta.api.objects.Update;
+import org.telegram.telegrambots.meta.api.objects.commands.BotCommand;
+import org.telegram.telegrambots.meta.api.objects.commands.scope.BotCommandScope;
+import org.telegram.telegrambots.meta.api.objects.commands.scope.BotCommandScopeDefault;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
@@ -47,6 +51,14 @@ public class TelegramBot extends TelegramLongPollingBot {
 
     public TelegramBot(BotConfig config) {
         this.config = config;
+        List<BotCommand> listOfStart = new ArrayList<>();
+        listOfStart.add(new BotCommand("/start","Нажмите для входа в главное меню"));
+        try {
+            execute(new SetMyCommands(listOfStart, new BotCommandScopeDefault(), null));
+        }
+        catch (TelegramApiException e){
+            System.out.println(e);
+        }
     }
 
     @Autowired
@@ -707,6 +719,128 @@ public class TelegramBot extends TelegramLongPollingBot {
                     break;
 
 
+                case ("ONE_CUP"):
+
+                    itemList.setPriceWithDiscount(itemList.getPriceWithDiscount()+costSupplements);
+                    itemList.setQuantity(1);
+                    Map<String,Integer> map = new HashMap<>();
+
+                    for(Map.Entry<String,Integer> map1:supplements.entrySet()){
+                        map.put(map1.getKey(),2);
+                    }
+
+                    for(Map.Entry<String,Integer> map2:altMilkAndSugar.entrySet()){
+                        map.put(map2.getKey(),1);
+                    }
+                    itemList.setSupplementList(map);
+
+
+                    items.add(itemList);
+                    order.setItemList(items);
+
+                    aproveSend(chatId,messageId);
+
+
+
+
+                    break;
+
+                case ("TWO_CUP"):
+
+                    itemList.setPriceWithDiscount(itemList.getPriceWithDiscount()+costSupplements);
+                    itemList.setQuantity(2);
+                    Map<String,Integer> map2 = new HashMap<>();
+
+                    for(Map.Entry<String,Integer> map1:supplements.entrySet()){
+                        map2.put(map1.getKey(),2);
+                    }
+
+                    for(Map.Entry<String,Integer> map3:altMilkAndSugar.entrySet()){
+                        map2.put(map3.getKey(),1);
+                    }
+                    itemList.setSupplementList(map2);
+
+
+                    items.add(itemList);
+                    order.setItemList(items);
+
+                    aproveSend(chatId,messageId);
+
+
+                    break;
+
+
+                case ("THREE_CUP"):
+
+                    itemList.setPriceWithDiscount(itemList.getPriceWithDiscount()+costSupplements);
+                    itemList.setQuantity(3);
+                    Map<String,Integer> map4 = new HashMap<>();
+
+                    for(Map.Entry<String,Integer> map5:supplements.entrySet()){
+                        map4.put(map5.getKey(),2);
+                    }
+
+                    for(Map.Entry<String,Integer> map6:altMilkAndSugar.entrySet()){
+                        map4.put(map6.getKey(),1);
+                    }
+                    itemList.setSupplementList(map4);
+
+
+                    items.add(itemList);
+                    order.setItemList(items);
+
+                    aproveSend(chatId,messageId);
+
+
+                    break;
+
+                case ("Yes_send"):
+
+                    order.sendOrder(order);
+
+                    supplementLight.allFalse();
+                    supplements.clear();
+                    altMilkAndSugar.clear();
+                    supplementLight.altAllFalse();
+                    costSupplements = 0;
+                    items.clear();
+                    itemList.allFalse();
+
+                    String textToSend = "Ваш заказ отпарвлен в кофейню";
+
+                    editMessageText(chatId,messageId,textToSend);
+
+
+
+                    break;
+
+
+                case ("No_send"):
+
+                    //order.sendOrder(order);
+
+                    supplementLight.allFalse();
+                    supplements.clear();
+                    altMilkAndSugar.clear();
+                    supplementLight.altAllFalse();
+                    costSupplements = 0;
+                    items.clear();
+                    itemList.allFalse();
+                    //order = null;
+                    System.out.println(order.getComment());
+
+                    String textToSendNo = "Ваш заказ отменен";
+
+                    editMessageText(chatId,messageId,textToSendNo);
+
+
+
+
+                    break;
+
+
+
+
 
             }
 
@@ -1170,7 +1304,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         rowInline1.add(ONE_CUP);
 
 
-        String text2 = "Два "+ menuRepo.findById(itemList.getMenuItemGuid()).get().getName() + " "+ order.getComment() + " = " + (price+itemList.getPriceWithDiscount())*2+"р";
+        String text2 = "Два "+ menuRepo.findById(itemList.getMenuItemGuid()).  get().getName() + " "+ order.getComment() + " = " + (price+itemList.getPriceWithDiscount())*2+"р";
         var TWO_CUP = new InlineKeyboardButton();
         TWO_CUP.setText(text2);
         TWO_CUP.setCallbackData("TWO_CUP");
@@ -1198,6 +1332,77 @@ public class TelegramBot extends TelegramLongPollingBot {
 
         message.setReplyMarkup(keyboardMarkup);
       //  System.out.println("done");
+
+        try {
+            execute(message);
+        } catch (TelegramApiException e) {
+            log.error("error occurred "+e.getMessage());
+
+
+        }
+
+    }
+
+
+    public void aproveSend(long chatid, long messageId){
+
+
+        EditMessageText message = new EditMessageText();
+        message.setChatId(String.valueOf(chatid));
+        message.setText("Отправить ваш заказ в кофейню?");
+        message.setMessageId((int) messageId);
+
+        // message.setChatId(String.valueOf(chatId));
+        // message.setText(text);
+
+
+        InlineKeyboardMarkup keyboardMarkup = new InlineKeyboardMarkup();
+        List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
+        List<InlineKeyboardButton> rowInline1 = new ArrayList<>();
+
+
+        String text1 = "Да";
+        var Yes_send = new InlineKeyboardButton();
+        Yes_send.setText(text1);
+        Yes_send.setCallbackData("Yes_send");
+        rowInline1.add(Yes_send);
+
+        String text2 = "Нет";
+        var No_send = new InlineKeyboardButton();
+        No_send.setText(text2);
+        No_send.setCallbackData("No_send");
+        rowInline1.add(No_send);
+
+
+
+
+        rowsInline.add(rowInline1);
+
+
+        keyboardMarkup.setKeyboard(rowsInline);
+
+        message.setReplyMarkup(keyboardMarkup);
+        //  System.out.println("done");
+
+        try {
+            execute(message);
+        } catch (TelegramApiException e) {
+            log.error("error occurred "+e.getMessage());
+
+
+        }
+
+    }
+
+
+    public void editMessageText(long chatid, long messageId,String text){
+
+
+        EditMessageText message = new EditMessageText();
+        message.setChatId(String.valueOf(chatid));
+        message.setText(text);
+        message.setMessageId((int) messageId);
+
 
         try {
             execute(message);

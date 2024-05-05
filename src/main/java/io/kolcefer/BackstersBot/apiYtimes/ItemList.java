@@ -25,6 +25,19 @@ public class ItemList {
     @JsonProperty("quantity")
     private int quantity;
 
+
+    public void allFalse(){
+
+        this.menuItemGuid = null;
+        this.menuTypeGuid = null;
+        this.supplementList = null;
+        this.goodsItemGuid = null;
+        this.priceWithDiscount = 0.0;
+        this.quantity = 0;
+
+
+    }
+
 //    public ItemList(String menuItemGuid, String menuTypeGuid, List<?> supplementList, String goodsItemGuid, Double priceWithDiscount, int quantity) {
 //        this.menuItemGuid = menuItemGuid;
 //        this.menuTypeGuid = menuTypeGuid;

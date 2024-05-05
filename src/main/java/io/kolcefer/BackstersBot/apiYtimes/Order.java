@@ -14,18 +14,26 @@ import org.springframework.web.client.RestTemplate;
 import java.util.List;
 @Component
 public class Order {
-
+    @JsonProperty("guid")
     private String guid;
+    @JsonProperty("status")
     private String status;
+
     @JsonProperty("shopGuid")
     private String shopGuid;
+    @JsonProperty("type")
     private String type;
+    @JsonProperty("client")
     private Client client;
     @JsonProperty("itemList")
     private List<ItemList> itemList;
+    @JsonProperty("comment")
     private String comment;
+    @JsonProperty("paidValue")
     private Double paidValue;
+    @JsonProperty("printFiscalCheck")
     private boolean printFiscalCheck;
+    @JsonProperty("printFiscalCheckEmail")
     private String printFiscalCheckEmail;
 
 
